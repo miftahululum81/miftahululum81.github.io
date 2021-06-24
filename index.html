@@ -1,0 +1,2302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Dashboard</title>
+  <link rel="manifest" href="/manifest.json">
+  <!--<link rel="stylesheet" href="css/style.css">-->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="images/hello-icon-152.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="white"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Dashboard">
+  <meta name="msapplication-TileImage" content="images/hello-icon-144.png">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="themes/konten/plugins/fontawesome-free/css/all.min.css">
+
+  <!-- DataTables -->
+  <link rel="stylesheet" href="themes/konten/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="themes/konten/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="themes/konten/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="themes/konten/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="themes/konten/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="themes/konten/plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="themes/konten/dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="themes/konten/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="themes/konten/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="themes/konten/plugins/summernote/summernote-bs4.min.css">
+  
+  <style>
+	  .nav-sidebar .nav-treeview {
+		padding: 0 0 0 25px;
+		}
+  </style>
+
+</head>
+<body class="hold-transition  sidebar-mini layout-fixed ">
+  
+
+  <div class="wrapper">
+  
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__shake" src="themes/konten/dist/img/AdminLTELogo.png" alt="Logo" height="60" width="60">
+    </div>
+  
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <!--<li class="nav-item d-none d-sm-inline-block">
+          <a href="index3.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Contact</a>
+        </li>-->
+      </ul>
+  
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        <!-- Navbar Search -->
+        <li class="nav-item" style="display:none; ">
+          <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+            <i class="fas fa-search"></i>
+          </a>
+          <div class="navbar-search-block">
+            <form class="form-inline">
+              <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                  <button class="btn btn-navbar" type="submit">
+                    <i class="fas fa-search"></i>
+                  </button>
+                  <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </li>
+  
+        <!-- Messages Dropdown Menu -->
+        <li class="nav-item dropdown" style="display:none; ">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="far fa-comments"></i>
+            <span class="badge badge-danger navbar-badge">3</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <a href="#" class="dropdown-item">
+              <!-- Message Start -->
+              <div class="media">
+                <img src="themes/konten/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                <div class="media-body">
+                  <h3 class="dropdown-item-title">
+                    Brad Diesel
+                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                  </h3>
+                  <p class="text-sm">Call me whenever you can...</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                </div>
+              </div>
+              <!-- Message End -->
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <!-- Message Start -->
+              <div class="media">
+                <img src="themes/konten/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                <div class="media-body">
+                  <h3 class="dropdown-item-title">
+                    John Pierce
+                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                  </h3>
+                  <p class="text-sm">I got your message bro</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                </div>
+              </div>
+              <!-- Message End -->
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <!-- Message Start -->
+              <div class="media">
+                <img src="themes/konten/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                <div class="media-body">
+                  <h3 class="dropdown-item-title">
+                    Nora Silvester
+                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                  </h3>
+                  <p class="text-sm">The subject goes here</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                </div>
+              </div>
+              <!-- Message End -->
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+          </div>
+        </li>
+        <!-- Notifications Dropdown Menu -->
+        <li class="nav-item dropdown" style="display:none; ">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="far fa-bell"></i>
+            <span class="badge badge-warning navbar-badge">15</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <span class="dropdown-item dropdown-header">15 Notifications</span>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-envelope mr-2"></i> 4 new messages
+              <span class="float-right text-muted text-sm">3 mins</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-users mr-2"></i> 8 friend requests
+              <span class="float-right text-muted text-sm">12 hours</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-file mr-2"></i> 3 new reports
+              <span class="float-right text-muted text-sm">2 days</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+            <i class="fas fa-expand-arrows-alt"></i>
+          </a>
+        </li>
+        <!--<li class="nav-item">
+          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+            <i class="fas fa-th-large"></i>
+          </a>
+        </li>-->
+      </ul>
+    </nav>
+    <!-- /.navbar -->
+  
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-link">
+        <img src="themes/konten/dist/img/AdminLTELogo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">Dashboard</span>
+      </a>
+  
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <!--<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="themes/konten/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="#" class="d-block">Alexander Pierce</a>
+          </div>
+        </div>-->
+  
+        <!-- SidebarSearch Form -->
+        <div class="form-inline" style="display:none; ">
+          <div class="input-group" data-widget="sidebar-search">
+            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+              <button class="btn btn-sidebar">
+                <i class="fas fa-search fa-fw"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+            
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Dashboard
+                </p>
+              </a>
+            </li>
+            
+            
+            <li class="nav-item" style="display:none; ">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-chart-pie"></i>
+                <p>
+                  Customer Reports
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Sales</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Login</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Wishlist</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Search</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+  
+    
+  
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0">Dashboard</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+              <!--<ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Dashboard v1</li>
+              </ol>-->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+  
+      <!-- Main content -->
+      <section class="content">
+      
+    <div class="container-fluid">
+          <!-- Small boxes (Stat box) -->
+          <div class="row">
+            <div class="col-lg-3 col-6">
+              <!-- small box -->
+              <div class="small-box bg-info">
+                <div class="inner">
+                  <h3>1216</h3>
+  
+                  <p>Total Order</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+              <!-- small box -->
+              <div class="small-box bg-success">
+                <div class="inner">
+                  <h3>899</h3>
+  
+                  <p>Products</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+              <!-- small box -->
+              <div class="small-box bg-warning">
+                <div class="inner">
+                  <h3>1300</h3>
+  
+                  <p>Members</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-person-add"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+              <!-- small box -->
+              <div class="small-box bg-danger">
+                <div class="inner">
+                  <h3>8059</h3>
+  
+                  <p>Visitors</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+          </div>
+          
+          
+          <div class="row">
+            <div class="col-sm-3 col-6">
+              <div class="description-block border-right">
+                <span class="description-percentage text-success"><!--<i class="fas fa-caret-up"></i>--> 34%</span>
+                <h5 class="description-header">Rp. 664.187.028,00</h5>
+                <span class="description-text">TOTAL PAID</span>
+              </div>
+              <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-3 col-6">
+              <div class="description-block border-right">
+                <span class="description-percentage text-danger"><!--<i class="fas fa-caret-left"></i>--> 19%</span>
+                <h5 class="description-header">Rp. 364.962.900,00</h5>
+                <span class="description-text">TOTAL CANCELED</span>
+              </div>
+              <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-3 col-6">
+              <div class="description-block border-right">
+                <span class="description-percentage text-warning"><!--<i class="fas fa-caret-up"></i>--> 17%</span>
+                <h5 class="description-header">Rp. 341.066.300,00</h5>
+                <span class="description-text">TOTAL EXPIRE</span>
+              </div>
+              <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-3 col-6">
+              <div class="description-block">
+                <span class="description-percentage text-danger"><!--<i class="fas fa-caret-down"></i>--> 2%</span>
+                <h5 class="description-header">Rp. 33.287.800,00</h5>
+                <span class="description-text">TOTAL DENY</span>
+              </div>
+              <!-- /.description-block -->
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-sm-12">&nbsp;</div>
+            </div>
+                  
+                  
+          <!-- /.row -->
+          <!-- Main row -->
+          <div class="row">
+            <!-- Left col -->
+            <section class="col-lg-7 connectedSortable">
+              <!-- Custom tabs (Charts with tabs)-->
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">
+                    <i class="fas fa-chart-pie mr-1"></i>
+                    <!--Sales-->Orders
+                  </h3>
+                  <div class="card-tools">
+                    <!--<ul class="nav nav-pills ml-auto">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
+                      </li>
+                    </ul>-->
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div><!-- /.card-header -->
+                <div class="card-body">
+                  <div class="tab-content p-0">
+                    <!-- Morris chart - Sales -->
+                    <div class="chart tab-pane active" id="revenue-chart"
+                         style="position: relative; height: 300px;">
+                        <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
+                     </div>
+                    <!--<div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
+                      <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
+                    </div>-->
+                  </div>
+                </div><!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+  
+              <!-- DIRECT CHAT -->
+              <div class="card direct-chat direct-chat-primary" style="display:none">
+                <div class="card-header">
+                  <h3 class="card-title">Direct Chat</h3>
+  
+                  <div class="card-tools">
+                    <span title="3 New Messages" class="badge badge-primary">3</span>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" title="Contacts" data-widget="chat-pane-toggle">
+                      <i class="fas fa-comments"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <!-- Conversations are loaded here -->
+                  <div class="direct-chat-messages">
+                    <!-- Message. Default to the left -->
+                    <div class="direct-chat-msg">
+                      <div class="direct-chat-infos clearfix">
+                        <span class="direct-chat-name float-left">Alexander Pierce</span>
+                        <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                      </div>
+                      <!-- /.direct-chat-infos -->
+                      <img class="direct-chat-img" src="themes/konten/dist/img/user1-128x128.jpg" alt="message user image">
+                      <!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                        Is this template really for free? That's unbelievable!
+                      </div>
+                      <!-- /.direct-chat-text -->
+                    </div>
+                    <!-- /.direct-chat-msg -->
+  
+                    <!-- Message to the right -->
+                    <div class="direct-chat-msg right">
+                      <div class="direct-chat-infos clearfix">
+                        <span class="direct-chat-name float-right">Sarah Bullock</span>
+                        <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+                      </div>
+                      <!-- /.direct-chat-infos -->
+                      <img class="direct-chat-img" src="themes/konten/dist/img/user3-128x128.jpg" alt="message user image">
+                      <!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                        You better believe it!
+                      </div>
+                      <!-- /.direct-chat-text -->
+                    </div>
+                    <!-- /.direct-chat-msg -->
+  
+                    <!-- Message. Default to the left -->
+                    <div class="direct-chat-msg">
+                      <div class="direct-chat-infos clearfix">
+                        <span class="direct-chat-name float-left">Alexander Pierce</span>
+                        <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
+                      </div>
+                      <!-- /.direct-chat-infos -->
+                      <img class="direct-chat-img" src="themes/konten/dist/img/user1-128x128.jpg" alt="message user image">
+                      <!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                        Working with AdminLTE on a great new app! Wanna join?
+                      </div>
+                      <!-- /.direct-chat-text -->
+                    </div>
+                    <!-- /.direct-chat-msg -->
+  
+                    <!-- Message to the right -->
+                    <div class="direct-chat-msg right">
+                      <div class="direct-chat-infos clearfix">
+                        <span class="direct-chat-name float-right">Sarah Bullock</span>
+                        <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
+                      </div>
+                      <!-- /.direct-chat-infos -->
+                      <img class="direct-chat-img" src="themes/konten/dist/img/user3-128x128.jpg" alt="message user image">
+                      <!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                        I would love to.
+                      </div>
+                      <!-- /.direct-chat-text -->
+                    </div>
+                    <!-- /.direct-chat-msg -->
+  
+                  </div>
+                  <!--/.direct-chat-messages-->
+  
+                  <!-- Contacts are loaded here -->
+                  <div class="direct-chat-contacts">
+                    <ul class="contacts-list">
+                      <li>
+                        <a href="#">
+                          <img class="contacts-list-img" src="themes/konten/dist/img/user1-128x128.jpg" alt="User Avatar">
+  
+                          <div class="contacts-list-info">
+                            <span class="contacts-list-name">
+                              Count Dracula
+                              <small class="contacts-list-date float-right">2/28/2015</small>
+                            </span>
+                            <span class="contacts-list-msg">How have you been? I was...</span>
+                          </div>
+                          <!-- /.contacts-list-info -->
+                        </a>
+                      </li>
+                      <!-- End Contact Item -->
+                      <li>
+                        <a href="#">
+                          <img class="contacts-list-img" src="themes/konten/dist/img/user7-128x128.jpg" alt="User Avatar">
+  
+                          <div class="contacts-list-info">
+                            <span class="contacts-list-name">
+                              Sarah Doe
+                              <small class="contacts-list-date float-right">2/23/2015</small>
+                            </span>
+                            <span class="contacts-list-msg">I will be waiting for...</span>
+                          </div>
+                          <!-- /.contacts-list-info -->
+                        </a>
+                      </li>
+                      <!-- End Contact Item -->
+                      <li>
+                        <a href="#">
+                          <img class="contacts-list-img" src="themes/konten/dist/img/user3-128x128.jpg" alt="User Avatar">
+  
+                          <div class="contacts-list-info">
+                            <span class="contacts-list-name">
+                              Nadia Jolie
+                              <small class="contacts-list-date float-right">2/20/2015</small>
+                            </span>
+                            <span class="contacts-list-msg">I'll call you back at...</span>
+                          </div>
+                          <!-- /.contacts-list-info -->
+                        </a>
+                      </li>
+                      <!-- End Contact Item -->
+                      <li>
+                        <a href="#">
+                          <img class="contacts-list-img" src="themes/konten/dist/img/user5-128x128.jpg" alt="User Avatar">
+  
+                          <div class="contacts-list-info">
+                            <span class="contacts-list-name">
+                              Nora S. Vans
+                              <small class="contacts-list-date float-right">2/10/2015</small>
+                            </span>
+                            <span class="contacts-list-msg">Where is your new...</span>
+                          </div>
+                          <!-- /.contacts-list-info -->
+                        </a>
+                      </li>
+                      <!-- End Contact Item -->
+                      <li>
+                        <a href="#">
+                          <img class="contacts-list-img" src="themes/konten/dist/img/user6-128x128.jpg" alt="User Avatar">
+  
+                          <div class="contacts-list-info">
+                            <span class="contacts-list-name">
+                              John K.
+                              <small class="contacts-list-date float-right">1/27/2015</small>
+                            </span>
+                            <span class="contacts-list-msg">Can I take a look at...</span>
+                          </div>
+                          <!-- /.contacts-list-info -->
+                        </a>
+                      </li>
+                      <!-- End Contact Item -->
+                      <li>
+                        <a href="#">
+                          <img class="contacts-list-img" src="themes/konten/dist/img/user8-128x128.jpg" alt="User Avatar">
+  
+                          <div class="contacts-list-info">
+                            <span class="contacts-list-name">
+                              Kenneth M.
+                              <small class="contacts-list-date float-right">1/4/2015</small>
+                            </span>
+                            <span class="contacts-list-msg">Never mind I found...</span>
+                          </div>
+                          <!-- /.contacts-list-info -->
+                        </a>
+                      </li>
+                      <!-- End Contact Item -->
+                    </ul>
+                    <!-- /.contacts-list -->
+                  </div>
+                  <!-- /.direct-chat-pane -->
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <form action="#" method="post">
+                    <div class="input-group">
+                      <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                      <span class="input-group-append">
+                        <button type="button" class="btn btn-primary">Send</button>
+                      </span>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.card-footer-->
+              </div>
+              <!--/.direct-chat -->
+  
+              <!-- TO DO List -->
+              <div class="card" style="display:none">
+                <div class="card-header">
+                  <h3 class="card-title">
+                    <i class="ion ion-clipboard mr-1"></i>
+                    To Do List
+                  </h3>
+  
+                  <div class="card-tools">
+                    <ul class="pagination pagination-sm">
+                      <li class="page-item"><a href="#" class="page-link">&laquo;</a></li>
+                      <li class="page-item"><a href="#" class="page-link">1</a></li>
+                      <li class="page-item"><a href="#" class="page-link">2</a></li>
+                      <li class="page-item"><a href="#" class="page-link">3</a></li>
+                      <li class="page-item"><a href="#" class="page-link">&raquo;</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <ul class="todo-list" data-widget="todo-list">
+                    <li>
+                      <!-- drag handle -->
+                      <span class="handle">
+                        <i class="fas fa-ellipsis-v"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                      </span>
+                      <!-- checkbox -->
+                      <div  class="icheck-primary d-inline ml-2">
+                        <input type="checkbox" value="" name="todo1" id="todoCheck1">
+                        <label for="todoCheck1"></label>
+                      </div>
+                      <!-- todo text -->
+                      <span class="text">Design a nice theme</span>
+                      <!-- Emphasis label -->
+                      <small class="badge badge-danger"><i class="far fa-clock"></i> 2 mins</small>
+                      <!-- General tools such as edit or delete-->
+                      <div class="tools">
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash-o"></i>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="handle">
+                        <i class="fas fa-ellipsis-v"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                      </span>
+                      <div  class="icheck-primary d-inline ml-2">
+                        <input type="checkbox" value="" name="todo2" id="todoCheck2" checked>
+                        <label for="todoCheck2"></label>
+                      </div>
+                      <span class="text">Make the theme responsive</span>
+                      <small class="badge badge-info"><i class="far fa-clock"></i> 4 hours</small>
+                      <div class="tools">
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash-o"></i>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="handle">
+                        <i class="fas fa-ellipsis-v"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                      </span>
+                      <div  class="icheck-primary d-inline ml-2">
+                        <input type="checkbox" value="" name="todo3" id="todoCheck3">
+                        <label for="todoCheck3"></label>
+                      </div>
+                      <span class="text">Let theme shine like a star</span>
+                      <small class="badge badge-warning"><i class="far fa-clock"></i> 1 day</small>
+                      <div class="tools">
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash-o"></i>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="handle">
+                        <i class="fas fa-ellipsis-v"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                      </span>
+                      <div  class="icheck-primary d-inline ml-2">
+                        <input type="checkbox" value="" name="todo4" id="todoCheck4">
+                        <label for="todoCheck4"></label>
+                      </div>
+                      <span class="text">Let theme shine like a star</span>
+                      <small class="badge badge-success"><i class="far fa-clock"></i> 3 days</small>
+                      <div class="tools">
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash-o"></i>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="handle">
+                        <i class="fas fa-ellipsis-v"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                      </span>
+                      <div  class="icheck-primary d-inline ml-2">
+                        <input type="checkbox" value="" name="todo5" id="todoCheck5">
+                        <label for="todoCheck5"></label>
+                      </div>
+                      <span class="text">Check your messages and notifications</span>
+                      <small class="badge badge-primary"><i class="far fa-clock"></i> 1 week</small>
+                      <div class="tools">
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash-o"></i>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="handle">
+                        <i class="fas fa-ellipsis-v"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                      </span>
+                      <div  class="icheck-primary d-inline ml-2">
+                        <input type="checkbox" value="" name="todo6" id="todoCheck6">
+                        <label for="todoCheck6"></label>
+                      </div>
+                      <span class="text">Let theme shine like a star</span>
+                      <small class="badge badge-secondary"><i class="far fa-clock"></i> 1 month</small>
+                      <div class="tools">
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash-o"></i>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer clearfix">
+                  <button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add item</button>
+                </div>
+              </div>
+              <!-- /.card -->
+              
+              <div class="card" style="display:none">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+  
+                    <h3 class="card-title">Online Store Visitors</h3>
+                    <a href="javascript:void(0);">View Report</a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="d-flex">
+                    <p class="d-flex flex-column">
+                      <span class="text-bold text-lg">820</span>
+                      <span>Visitors Over Time</span>
+                    </p>
+                    <p class="ml-auto d-flex flex-column text-right">
+                      <span class="text-success">
+                        <i class="fas fa-arrow-up"></i> 12.5%
+                      </span>
+                      <span class="text-muted">Since last week</span>
+                    </p>
+                  </div>
+                  <!-- /.d-flex -->
+  
+                  <div class="position-relative mb-4">
+                    <canvas id="visitors-chart" height="200"></canvas>
+                  </div>
+  
+                  <div class="d-flex flex-row justify-content-end">
+                    <span class="mr-2">
+                      <i class="fas fa-square text-primary"></i> This Week
+                    </span>
+  
+                    <span>
+                      <i class="fas fa-square text-gray"></i> Last Week
+                    </span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row">
+              <div class="col-lg-6">
+              
+              
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">Gender Order</h3>
+  
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <div class="chart-responsive">
+                        <canvas id="sales-chart-canvas" height="200" style="height: 200px;"></canvas>
+                      </div>
+                      <!-- ./chart-responsive -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-5">
+                      <ul class="chart-legend clearfix">
+                        <!--<li><i class="far fa-circle text-danger"></i> Alexandre Christie</li>
+                        <li><i class="far fa-circle text-success"></i> Expedition</li>
+                        <li><i class="far fa-circle text-warning"></i> Daniel Klein</li>
+                        <li><i class="far fa-circle text-info"></i> Q&Q </li>
+                        <li><i class="far fa-circle text-primary"></i> EXP</li>
+                        <li><i class="far fa-circle text-secondary"></i> Mazzucato</li>
+                        <li><i class="far fa-circle text-secondary"></i> ORIS</li>-->
+                        <li><i class="far fa-circle text-danger"></i> Unknown</li>
+                        <li><i class="far fa-circle text-primary"></i> Female</li>
+                        <li><i class="far fa-circle text-warning"></i> Male</li>
+                      </ul>
+                    </div>
+                    <!-- /.col -->
+                  </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer text-center" style="display:none; ">
+                  <a href="javascript:void(0)" class="uppercase">View All Products</a>
+                </div>
+                <!-- /.card-footer -->
+              </div>
+              
+              
+              <style>
+              .users-list>li {
+          width: 33%;
+        }
+              </style>
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">Latest Registration</h3>
+  
+                  <div class="card-tools">
+                    <span class="badge badge-danger">6 New Members</span>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body p-0">
+                  <ul class="users-list clearfix">
+                                      <li>
+                      <img src="themes/konten/dist/img/avatar.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Muhammad keviin</a>
+                      <span class="users-list-date">08 Jun 2021</span>
+                    </li>
+                                      <li>
+                      <img src="themes/konten/dist/img/avatar.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Khusembay Chanel</a>
+                      <span class="users-list-date">05 Jun 2021</span>
+                    </li>
+                                      <li>
+                      <img src="themes/konten/dist/img/avatar.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Claudia Andaresta</a>
+                      <span class="users-list-date">05 Jun 2021</span>
+                    </li>
+                                      <li>
+                      <img src="themes/konten/dist/img/avatar.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Ashwini Thadani</a>
+                      <span class="users-list-date">04 Jun 2021</span>
+                    </li>
+                                      <li>
+                      <img src="themes/konten/dist/img/avatar.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Iwan saputra</a>
+                      <span class="users-list-date">03 Jun 2021</span>
+                    </li>
+                                      <li>
+                      <img src="themes/konten/dist/img/avatar.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">vifx broker</a>
+                      <span class="users-list-date">02 Jun 2021</span>
+                    </li>
+                                      
+                  </ul>
+                  <!-- /.users-list -->
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer text-center">
+                  <a href="javascript:">View All Member</a>
+                </div>
+                <!-- /.card-footer -->
+              </div>
+              
+              
+              </div>
+              <div class="col-lg-6">
+              
+              
+        <div style="display:none; ">
+        <!-- Info Boxes Style 2 -->
+              <div class="info-box mb-3 bg-warning">
+                <span class="info-box-icon"><i class="fas fa-tag"></i></span>
+  
+                <div class="info-box-content">
+                  <span class="info-box-text">Business Profile</span>
+                  <span class="info-box-number">180</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+              <div class="info-box mb-3 bg-success">
+                <span class="info-box-icon"><i class="far fa-heart"></i></span>
+  
+                <div class="info-box-content">
+                  <span class="info-box-text">Restaurants</span>
+                  <span class="info-box-number">278</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+              <div class="info-box mb-3 bg-danger">
+                <span class="info-box-icon"><i class="fas fa-cloud-download-alt"></i></span>
+  
+                <div class="info-box-content">
+                  <span class="info-box-text">Hotels</span>
+                  <span class="info-box-number">322</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+              <div class="info-box mb-3 bg-info">
+                <span class="info-box-icon"><i class="far fa-comment"></i></span>
+  
+                <div class="info-box-content">
+                  <span class="info-box-text">Destinations</span>
+                  <span class="info-box-number">185</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+              <div class="info-box mb-3 bg-warning">
+                <span class="info-box-icon"><i class="fas fa-school"></i></span>
+  
+                <div class="info-box-content">
+                  <span class="info-box-text">Educations</span>
+                  <span class="info-box-number">185</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+              <div class="info-box mb-3 bg-success">
+                <span class="info-box-icon"><i class="far fa-comment"></i></span>
+  
+                <div class="info-box-content">
+                  <span class="info-box-text">Important Numbers</span>
+                  <span class="info-box-number">185</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+              </div>
+              
+              
+              
+              <div class="card">
+                <div class="card-header border-0">
+                  <h3 class="card-title">Top Order</h3>
+                  <div class="card-tools">
+                    <ul class="nav nav-pills ml-auto">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#products2" data-toggle="tab">Products</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#brands" data-toggle="tab">Brands</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#members" data-toggle="tab">Members</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#cities" data-toggle="tab">Cities</a>
+                      </li>
+                    </ul>
+                    <!--<button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                      <i class="fas fa-times"></i>
+                    </button>-->
+                  </div>
+                </div>
+                <div class="card-body table-responsive p-0">
+                <div class="tab-content p-0">
+                    <!-- Morris chart - Sales -->
+                    <div class="tab-pane active" id="products2">
+                      <table class="table table-striped table-valign-middle">
+                        <thead>
+                        <tr>
+                          <th>No.</th>
+                          <th>Product</th>
+                          <th>Orders</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                                                                                          <tr>
+                          <td>1</td>
+                          <td>Free AC DiGi</td>
+                          <td>80</td>
+                        </tr>
+                                                                    <tr>
+                          <td>2</td>
+                          <td>AC 6141 MCBIPBA</td>
+                          <td>31</td>
+                        </tr>
+                                                                    <tr>
+                          <td>3</td>
+                          <td>AC DIGI 9224 MENIPSLRE</td>
+                          <td>30</td>
+                        </tr>
+                                                                    <tr>
+                          <td>4</td>
+                          <td>AC 6141 MCBBRBA</td>
+                          <td>27</td>
+                        </tr>
+                                                                    <tr>
+                          <td>5</td>
+                          <td>AC 6141 BFBBRBA</td>
+                          <td>20</td>
+                        </tr>
+                                                                    <tr>
+                          <td>6</td>
+                          <td>AC 6141 MCBTBBA</td>
+                          <td>20</td>
+                        </tr>
+                                                                    <tr>
+                          <td>7</td>
+                          <td>AC 9205 MCBBRBA</td>
+                          <td>20</td>
+                        </tr>
+                                                                    <tr>
+                          <td>8</td>
+                          <td>AC DIGI 9224 MERGNSL</td>
+                          <td>20</td>
+                        </tr>
+                                                                    <tr>
+                          <td>9</td>
+                          <td>AC DIGI 9224 MENGNSL</td>
+                          <td>19</td>
+                        </tr>
+                                                                    <tr>
+                          <td>10</td>
+                          <td>AC DIGI 9224 MENIPBA</td>
+                          <td>19</td>
+                        </tr>
+                                              </tbody>
+                      </table>
+                    </div>
+                    <div class="tab-pane" id="brands">
+                      <table class="table table-striped table-valign-middle">
+                        <thead>
+                        <tr>
+                          <th>No.</th>
+                          <th>Brand</th>
+                          <th>Orders</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                                                                                          <tr>
+                          <td>1</td>
+                          <td>Alexandre Christie</td>
+                          <td>764</td>
+                        </tr>
+                                                                    <tr>
+                          <td>2</td>
+                          <td>Expedition</td>
+                          <td>269</td>
+                        </tr>
+                                                                    <tr>
+                          <td>3</td>
+                          <td>Daniel Klein</td>
+                          <td>32</td>
+                        </tr>
+                                                                    <tr>
+                          <td>4</td>
+                          <td>Q&amp;q</td>
+                          <td>31</td>
+                        </tr>
+                                                                    <tr>
+                          <td>5</td>
+                          <td>Exp</td>
+                          <td>24</td>
+                        </tr>
+                                                                    <tr>
+                          <td>6</td>
+                          <td>Mazzucato</td>
+                          <td>19</td>
+                        </tr>
+                                                                    <tr>
+                          <td>7</td>
+                          <td>ORIS</td>
+                          <td>4</td>
+                        </tr>
+                                                                    <tr>
+                          <td>8</td>
+                          <td>Klokers</td>
+                          <td>1</td>
+                        </tr>
+                                              </tbody>
+                      </table>
+                    </div>
+                    <div class="tab-pane" id="members">
+                      <table class="table table-striped table-valign-middle">
+                        <thead>
+                        <tr>
+                          <th>No.</th>
+                          <th>Member</th>
+                          <th>Orders</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                                                                                          <tr>
+                          <td>1</td>
+                          <td>Hendrik Wijaya</td>
+                          <td>27</td>
+                        </tr>
+                                                                    <tr>
+                          <td>2</td>
+                          <td>resma resma</td>
+                          <td>26</td>
+                        </tr>
+                                                                    <tr>
+                          <td>3</td>
+                          <td>imelda mandeli</td>
+                          <td>24</td>
+                        </tr>
+                                                                    <tr>
+                          <td>4</td>
+                          <td>zain z</td>
+                          <td>15</td>
+                        </tr>
+                                                                    <tr>
+                          <td>5</td>
+                          <td>Laura Sebastian</td>
+                          <td>12</td>
+                        </tr>
+                                                                    <tr>
+                          <td>6</td>
+                          <td>muhammad fashihullisan</td>
+                          <td>11</td>
+                        </tr>
+                                                                    <tr>
+                          <td>7</td>
+                          <td>Miftahul Ulum</td>
+                          <td>9</td>
+                        </tr>
+                                                                    <tr>
+                          <td>8</td>
+                          <td>Shilvy Sunarto</td>
+                          <td>8</td>
+                        </tr>
+                                                                    <tr>
+                          <td>9</td>
+                          <td>Diana Pratama</td>
+                          <td>8</td>
+                        </tr>
+                                                                    <tr>
+                          <td>10</td>
+                          <td>Micheal Pierre</td>
+                          <td>7</td>
+                        </tr>
+                                              </tbody>
+                      </table>
+                    </div>
+                    <div class="tab-pane" id="cities">
+                      <table class="table table-striped table-valign-middle">
+                        <thead>
+                        <tr>
+                          <th>No.</th>
+                          <th>City</th>
+                          <th>Orders</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                                                                                          <tr>
+                          <td>1</td>
+                          <td>Jakarta Barat</td>
+                          <td>58</td>
+                        </tr>
+                                                                    <tr>
+                          <td>2</td>
+                          <td>Surabaya</td>
+                          <td>50</td>
+                        </tr>
+                                                                    <tr>
+                          <td>3</td>
+                          <td>TANGERANG</td>
+                          <td>43</td>
+                        </tr>
+                                                                    <tr>
+                          <td>4</td>
+                          <td>Surabaya - Kota</td>
+                          <td>38</td>
+                        </tr>
+                                                                    <tr>
+                          <td>5</td>
+                          <td>Jakarta Timur</td>
+                          <td>33</td>
+                        </tr>
+                                                                    <tr>
+                          <td>6</td>
+                          <td>Medan</td>
+                          <td>31</td>
+                        </tr>
+                                                                    <tr>
+                          <td>7</td>
+                          <td>Jakarta Utara - Kota</td>
+                          <td>29</td>
+                        </tr>
+                                                                    <tr>
+                          <td>8</td>
+                          <td>Bandung</td>
+                          <td>25</td>
+                        </tr>
+                                                                    <tr>
+                          <td>9</td>
+                          <td>Jakarta selatan</td>
+                          <td>24</td>
+                        </tr>
+                                                                    <tr>
+                          <td>10</td>
+                          <td>Semarang</td>
+                          <td>21</td>
+                        </tr>
+                                              </tbody>
+                      </table>
+                    </div>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+              
+              
+              
+              <div class="card">
+                <div class="card-header border-0">
+                  <h3 class="card-title">Viewed</h3>
+                  <div class="card-tools">
+                    <ul class="nav nav-pills ml-auto">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#products" data-toggle="tab">Products</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#categories" data-toggle="tab">Categories</a>
+                      </li>
+                      
+                    </ul>
+                    <!--<button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                      <i class="fas fa-times"></i>
+                    </button>-->
+                  </div>
+                </div>
+                <div class="card-body table-responsive p-0">
+                <div class="tab-content p-0">
+                    <!-- Morris chart - Sales -->
+                    <div class="tab-pane active" id="products">
+                      <table class="table table-striped table-valign-middle">
+                        <thead>
+                        <tr>
+                          <th>No.</th>
+                          <th>Product</th>
+                          <th>Viewed</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                                                                                          <tr>
+                          <td>1</td>
+                          <td>ORIS BIG CROWN - POINTER DATE (754 7741 3166 LS)</td>
+                          <td>20229</td>
+                        </tr>
+                                                                    <tr>
+                          <td>2</td>
+                          <td>ORIS BIG CROWN - POINTER DATE 80TH ANNIVERSARY EDITION (754 7741 3167 LS)</td>
+                          <td>10505</td>
+                        </tr>
+                                                                    <tr>
+                          <td>3</td>
+                          <td>AC 9205 MCRBRBA(GL)</td>
+                          <td>7284</td>
+                        </tr>
+                                                                    <tr>
+                          <td>4</td>
+                          <td>AC 6141 MCBTBBA</td>
+                          <td>7201</td>
+                        </tr>
+                                                                    <tr>
+                          <td>5</td>
+                          <td>AC 6295 MCLIPBAIV</td>
+                          <td>6626</td>
+                        </tr>
+                                                                    <tr>
+                          <td>6</td>
+                          <td>AC 6456 MCLURBA</td>
+                          <td>6063</td>
+                        </tr>
+                                                                    <tr>
+                          <td>7</td>
+                          <td>ORIS OCEAN TRILOGY SET</td>
+                          <td>4383</td>
+                        </tr>
+                                                                    <tr>
+                          <td>8</td>
+                          <td>E 6800 MCRIPBAYL</td>
+                          <td>3835</td>
+                        </tr>
+                                                                    <tr>
+                          <td>9</td>
+                          <td>AC 6295 MCLBRBABO</td>
+                          <td>3382</td>
+                        </tr>
+                                                                    <tr>
+                          <td>10</td>
+                          <td>AC 6141 BFBBRBA</td>
+                          <td>3220</td>
+                        </tr>
+                                              </tbody>
+                      </table>
+                    </div>
+                    <div class="tab-pane" id="categories">
+                      <table class="table table-striped table-valign-middle">
+                        <thead>
+                        <tr>
+                          <th>No.</th>
+                          <th>Category</th>
+                          <th>Viewed</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                                                                                          <tr>
+                          <td>1</td>
+                          <td>Alexandre Christie &gt; Women</td>
+                          <td>17711</td>
+                        </tr>
+                                                                    <tr>
+                          <td>2</td>
+                          <td>Expedition</td>
+                          <td>6691</td>
+                        </tr>
+                                                                    <tr>
+                          <td>3</td>
+                          <td>Alexandre Christie</td>
+                          <td>5522</td>
+                        </tr>
+                                                                    <tr>
+                          <td>4</td>
+                          <td>Alexandre Christie &gt; Men</td>
+                          <td>3612</td>
+                        </tr>
+                                                                    <tr>
+                          <td>5</td>
+                          <td>Expedition &gt; Men</td>
+                          <td>3055</td>
+                        </tr>
+                                                                    <tr>
+                          <td>6</td>
+                          <td>Oris</td>
+                          <td>1525</td>
+                        </tr>
+                                                                    <tr>
+                          <td>7</td>
+                          <td>Alexandre Christie &gt; Pair</td>
+                          <td>1497</td>
+                        </tr>
+                                                                    <tr>
+                          <td>8</td>
+                          <td>Alexandre Christie &gt; Accessories</td>
+                          <td>1360</td>
+                        </tr>
+                                                                    <tr>
+                          <td>9</td>
+                          <td>Alexandre Christie &gt; Ac Smart</td>
+                          <td>1185</td>
+                        </tr>
+                                                                    <tr>
+                          <td>10</td>
+                          <td>Daniel Klein</td>
+                          <td>964</td>
+                        </tr>
+                                              </tbody>
+                      </table>
+                    </div>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+              
+              
+        
+              
+              </div>
+              </div>
+              
+              
+              
+              
+              
+              
+              
+            </section>
+            <!-- /.Left col -->
+            <!-- right col (We are only adding the ID to make the widgets sortable)-->
+            <section class="col-lg-5 connectedSortable">
+  
+              <!-- Map card -->
+              <div class="card bg-gradient-primary" style="display:none; ">
+                <div class="card-header border-0">
+                  <h3 class="card-title">
+                    <i class="fas fa-map-marker-alt mr-1"></i>
+                    Visitors
+                  </h3>
+                  <!-- card tools -->
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-primary btn-sm daterange" title="Date range">
+                      <i class="far fa-calendar-alt"></i>
+                    </button>
+                    <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" title="Collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                  </div>
+                  <!-- /.card-tools -->
+                </div>
+                <div class="card-body">
+                  <div id="world-map" style="height: 250px; width: 100%;"></div>
+                </div>
+                <!-- /.card-body-->
+                <div class="card-footer bg-transparent" style="display:none; ">
+                  <div class="row">
+                    <div class="col-4 text-center">
+                      <div id="sparkline-1"></div>
+                      <div class="text-white">Visitors</div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-4 text-center">
+                      <div id="sparkline-2"></div>
+                      <div class="text-white">Online</div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-4 text-center">
+                      <div id="sparkline-3"></div>
+                      <div class="text-white">Sales</div>
+                    </div>
+                    <!-- ./col -->
+                  </div>
+                  <!-- /.row -->
+                </div>
+              </div>
+              <!-- /.card -->
+  
+              <!-- solid sales graph -->
+              <div class="card bg-gradient-info">
+                <div class="card-header border-0">
+                  <h3 class="card-title">
+                    <i class="fas fa-th mr-1"></i>
+                    <!--Today's Visitor-->Orders
+                  </h3>
+  
+                  <div class="card-tools">
+                    <!--<button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
+                      <i class="fas fa-times"></i>
+                    </button>-->
+                    <ul class="nav nav-pills ml-auto">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#daily" data-toggle="tab" style="color:#FFF; ">Daily</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#weekly" data-toggle="tab" style="color:#FFF; ">Weekly</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#monthly" data-toggle="tab" style="color:#FFF; ">Monthly</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content p-0">
+                          <div class="chart tab-pane active" id="daily" style="position: relative; height: 300px;">
+                            <!--<canvas id="line-chart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>-->
+                            <canvas id="line-chart" height="300" style="height: 300px;"></canvas>
+                         </div>
+                        <div class="chart tab-pane" id="weekly" style="position: relative; height: 300px;">
+                          <canvas id="line-chart2" height="300" style="height: 300px;"></canvas>
+                        </div>
+                        <div class="chart tab-pane" id="monthly" style="position: relative; height: 300px;">
+                          <canvas id="line-chart3" height="300" style="height: 300px;"></canvas>
+                        </div>
+                    </div>
+                  <!--<canvas class="chart" id="line-chart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>-->
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer bg-transparent" style="display:none; ">
+                  <div class="row">
+                    <div class="col-4 text-center">
+                      <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
+                             data-fgColor="#39CCCC">
+  
+                      <div class="text-white">Mail-Orders</div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-4 text-center">
+                      <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
+                             data-fgColor="#39CCCC">
+  
+                      <div class="text-white">Online</div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-4 text-center">
+                      <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"
+                             data-fgColor="#39CCCC">
+  
+                      <div class="text-white">In-Store</div>
+                    </div>
+                    <!-- ./col -->
+                  </div>
+                  <!-- /.row -->
+                </div>
+                <!-- /.card-footer -->
+              </div>
+              <!-- /.card -->
+              
+              
+              <div class="card">
+                <div class="card-header border-0">
+                  <h3 class="card-title">Latest Orders</h3>
+                  <div class="card-tools">
+                    <!--<a href="#" class="btn btn-tool btn-sm">
+                      <i class="fas fa-download"></i>
+                    </a>
+                    <a href="#" class="btn btn-tool btn-sm">
+                      <i class="fas fa-bars"></i>
+                    </a>-->
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="card-body table-responsive p-0">
+                  <table class="table table-striped table-valign-middle">
+                    <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Status</th>
+                      <th>Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                                      <tr>
+                      <td>Adistya Nugraha MOT latsar BPJS</td>
+                      <td><span class="badge badge-info" style="text-transform:capitalize; ">shipped</span></td>
+                      <td>05/06/2021 12:38 PM</td>
+                    </tr>
+                                      <tr>
+                      <td>Aldi Hasbullah</td>
+                      <td> <span class="badge badge-warning" style="text-transform:capitalize; ">deny</span> </td>
+                      <td>04/06/2021 05:51 AM</td>
+                    </tr>
+                                      <tr>
+                      <td>Hetty Siwabessy</td>
+                      <td><span class="badge badge-info" style="text-transform:capitalize; ">shipped</span></td>
+                      <td>03/06/2021 09:49 PM</td>
+                    </tr>
+                                      <tr>
+                      <td>aria perkasa</td>
+                      <td><span class="badge badge-danger" style="text-transform:capitalize; ">canceled</span></td>
+                      <td>02/06/2021 05:20 PM</td>
+                    </tr>
+                                      <tr>
+                      <td>Johan Defi Renita</td>
+                      <td><span class="badge badge-danger" style="text-transform:capitalize; ">canceled</span></td>
+                      <td>02/06/2021 02:48 PM</td>
+                    </tr>
+                                      <tr>
+                      <td>Tendean Pratama Putra</td>
+                      <td><span class="badge badge-info" style="text-transform:capitalize; ">shipped</span></td>
+                      <td>02/06/2021 12:47 PM</td>
+                    </tr>
+                                      <tr>
+                      <td>Ulfa Fitriawati</td>
+                      <td><span class="badge badge-info" style="text-transform:capitalize; ">shipped</span></td>
+                      <td>02/06/2021 12:35 PM</td>
+                    </tr>
+                                      <tr>
+                      <td>Alfon Alfon</td>
+                      <td><span class="badge badge-info" style="text-transform:capitalize; ">shipped</span></td>
+                      <td>31/05/2021 02:34 PM</td>
+                    </tr>
+                                      <tr>
+                      <td>Riska Yunita Tresia</td>
+                      <td><span class="badge badge-danger" style="text-transform:capitalize; ">canceled</span></td>
+                      <td>30/05/2021 11:25 AM</td>
+                    </tr>
+                                      <tr>
+                      <td>Dodol Lipet Lempet</td>
+                      <td><span class="badge badge-danger" style="text-transform:capitalize; ">canceled</span></td>
+                      <td>29/05/2021 09:53 PM</td>
+                    </tr>
+                                      
+                    </tbody>
+                  </table>
+                </div>
+                <div class="card-footer text-center">
+                  <a href="javascript:">View All Orders</a>
+                </div>
+                <!-- /.card-footer -->
+              </div>
+              
+              
+              
+              
+              
+  
+              <!-- Calendar -->
+              <div class="card bg-gradient-success" style="display:none">
+                <div class="card-header border-0">
+  
+                  <h3 class="card-title">
+                    <i class="far fa-calendar-alt"></i>
+                    Calendar
+                  </h3>
+                  <!-- tools card -->
+                  <div class="card-tools">
+                    <!-- button with a dropdown -->
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
+                        <i class="fas fa-bars"></i>
+                      </button>
+                      <div class="dropdown-menu" role="menu">
+                        <a href="#" class="dropdown-item">Add new event</a>
+                        <a href="#" class="dropdown-item">Clear events</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">View calendar</a>
+                      </div>
+                    </div>
+                    <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                  <!-- /. tools -->
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body pt-0">
+                  <!--The calendar -->
+                  <div id="calendar" style="width: 100%"></div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+              
+              
+              <div class="card" style="display:none">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title">Sales</h3>
+                    <a href="javascript:void(0);">View Report</a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="d-flex">
+                    <p class="d-flex flex-column">
+                      <span class="text-bold text-lg">$18,230.00</span>
+                      <span>Sales Over Time</span>
+                    </p>
+                    <p class="ml-auto d-flex flex-column text-right">
+                      <span class="text-success">
+                        <i class="fas fa-arrow-up"></i> 33.1%
+                      </span>
+                      <span class="text-muted">Since last month</span>
+                    </p>
+                  </div>
+                  <!-- /.d-flex -->
+  
+                  <div class="position-relative mb-4">
+                    <canvas id="sales-chart" height="200"></canvas>
+                  </div>
+  
+                  <div class="d-flex flex-row justify-content-end">
+                    <span class="mr-2">
+                      <i class="fas fa-square text-primary"></i> This year
+                    </span>
+  
+                    <span>
+                      <i class="fas fa-square text-gray"></i> Last year
+                    </span>
+                  </div>
+                </div>
+              </div>
+  
+  
+  
+              
+              
+              
+            </section>
+            <!-- right col -->
+          </div>
+          <!-- /.row (main row) -->
+        </div>
+  
+    </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->    
+  
+    
+  
+    <footer class="main-footer">
+      <strong>&copy; 2011 <a href="#">TimeConcept.com</a>.</strong>
+      All rights reserved.
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 3.1.0
+      </div>
+    </footer>
+  
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
+  
+  <!-- jQuery -->
+  <script src="themes/konten/plugins/jquery/jquery.min.js"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="themes/konten/plugins/jquery-ui/jquery-ui.min.js"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script>
+  <!-- Bootstrap 4 -->
+  <script src="themes/konten/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- DataTables  & Plugins -->
+  <script src="themes/konten/plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="themes/konten/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="themes/konten/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="themes/konten/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+  <script src="themes/konten/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="themes/konten/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+  <script src="themes/konten/plugins/jszip/jszip.min.js"></script>
+  <script src="themes/konten/plugins/pdfmake/pdfmake.min.js"></script>
+  <script src="themes/konten/plugins/pdfmake/vfs_fonts.js"></script>
+  <script src="themes/konten/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+  <script src="themes/konten/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+  <script src="themes/konten/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+  
+  
+  <!-- ChartJS -->
+  <script src="themes/konten/plugins/chart.js/Chart.min.js"></script>
+  <!-- Sparkline -->
+  <script src="themes/konten/plugins/sparklines/sparkline.js"></script>
+  <!-- JQVMap -->
+  <script src="themes/konten/plugins/jqvmap/jquery.vmap.min.js"></script>
+  <script src="themes/konten/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+  <!-- jQuery Knob Chart -->
+  <script src="themes/konten/plugins/jquery-knob/jquery.knob.min.js"></script>
+  <!-- daterangepicker -->
+  <script src="themes/konten/plugins/moment/moment.min.js"></script>
+  <script src="themes/konten/plugins/daterangepicker/daterangepicker.js"></script>
+  <!-- Tempusdominus Bootstrap 4 -->
+  <script src="themes/konten/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <!-- Summernote -->
+  <script src="themes/konten/plugins/summernote/summernote-bs4.min.js"></script>
+  <!-- overlayScrollbars -->
+  <script src="themes/konten/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="themes/konten/dist/js/adminlte.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="themes/konten/dist/js/demo.js"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <!--<script src="themes/konten/dist/js/pages/dashboard.js"></script>-->
+  
+  <script>
+  /*
+   * Author: Abdullah A Almsaeed
+   * Date: 4 Jan 2014
+   * Description:
+   *      This is a demo file used only for the main dashboard (index.html)
+   **/
+  
+  /* global moment:false, Chart:false, Sparkline:false */
+  
+  $(function () {
+    'use strict'
+  
+    // Make the dashboard widgets sortable Using jquery UI
+    $('.connectedSortable').sortable({
+      placeholder: 'sort-highlight',
+      connectWith: '.connectedSortable',
+      handle: '.card-header, .nav-tabs',
+      forcePlaceholderSize: true,
+      zIndex: 999999
+    })
+    $('.connectedSortable .card-header').css('cursor', 'move')
+  
+    // jQuery UI sortable for the todo list
+    $('.todo-list').sortable({
+      placeholder: 'sort-highlight',
+      handle: '.handle',
+      forcePlaceholderSize: true,
+      zIndex: 999999
+    })
+  
+    // bootstrap WYSIHTML5 - text editor
+    $('.textarea').summernote()
+  
+    $('.daterange').daterangepicker({
+      ranges: {
+        Today: [moment(), moment()],
+        Yesterday: [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+        'This Month': [moment().startOf('month'), moment().endOf('month')],
+        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+      },
+      startDate: moment().subtract(29, 'days'),
+      endDate: moment()
+    }, function (start, end) {
+      // eslint-disable-next-line no-alert
+      alert('You chose: ' + start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+    })
+  
+    /* jQueryKnob */
+    $('.knob').knob()
+  
+    // jvectormap data
+    var visitorsData = {
+      US: 398, // USA
+      SA: 400, // Saudi Arabia
+      CA: 1000, // Canada
+      DE: 500, // Germany
+      FR: 760, // France
+      CN: 300, // China
+      AU: 700, // Australia
+      BR: 600, // Brazil
+      IN: 800, // India
+      GB: 320, // Great Britain
+      RU: 3000 // Russia
+    }
+    // World map by jvectormap
+    $('#world-map').vectorMap({
+      map: 'usa_en',
+      backgroundColor: 'transparent',
+      regionStyle: {
+        initial: {
+          fill: 'rgba(255, 255, 255, 0.7)',
+          'fill-opacity': 1,
+          stroke: 'rgba(0,0,0,.2)',
+          'stroke-width': 1,
+          'stroke-opacity': 1
+        }
+      },
+      series: {
+        regions: [{
+          values: visitorsData,
+          scale: ['#ffffff', '#0154ad'],
+          normalizeFunction: 'polynomial'
+        }]
+      },
+      onRegionLabelShow: function (e, el, code) {
+        if (typeof visitorsData[code] !== 'undefined') {
+          el.html(el.html() + ': ' + visitorsData[code] + ' new visitors')
+        }
+      }
+    })
+  
+    // Sparkline charts
+    var sparkline1 = new Sparkline($('#sparkline-1')[0], { width: 80, height: 50, lineColor: '#92c1dc', endColor: '#ebf4f9' })
+    var sparkline2 = new Sparkline($('#sparkline-2')[0], { width: 80, height: 50, lineColor: '#92c1dc', endColor: '#ebf4f9' })
+    var sparkline3 = new Sparkline($('#sparkline-3')[0], { width: 80, height: 50, lineColor: '#92c1dc', endColor: '#ebf4f9' })
+  
+    sparkline1.draw([1000, 1200, 920, 927, 931, 1027, 819, 930, 1021])
+    sparkline2.draw([515, 519, 520, 522, 652, 810, 370, 627, 319, 630, 921])
+    sparkline3.draw([15, 19, 20, 22, 33, 27, 31, 27, 19, 30, 21])
+  
+    // The Calender
+    $('#calendar').datetimepicker({
+      format: 'L',
+      inline: true
+    })
+  
+    // SLIMSCROLL FOR CHAT WIDGET
+    $('#chat-box').overlayScrollbars({
+      height: '250px'
+    })
+    
+    
+    /* Chart.js Charts */
+    // Sales chart
+    var salesChartCanvas = document.getElementById('revenue-chart-canvas').getContext('2d')
+    // $('#revenue-chart').get(0).getContext('2d');
+  
+    var salesChartData = {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      datasets: [
+        {
+          label: '2021',
+          backgroundColor: 'rgba(60,141,188,0.9)',
+          borderColor: 'rgba(60,141,188,0.8)',
+          pointRadius: false,
+          pointColor: '#3b8bba',
+          pointStrokeColor: 'rgba(60,141,188,1)',
+          pointHighlightFill: '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          //data: [2227, 2271, 2541, 2930, 2227, 1508, 0, 0, 0, 0, 0, 0]
+      data: [25088000,65773800,58143200,45720900,43134000,6752000,0,0,0,0,0,0]
+        },
+        {
+          label: '2020',
+          backgroundColor: 'rgba(210, 214, 222, 1)',
+          borderColor: 'rgba(210, 214, 222, 1)',
+          pointRadius: false,
+          pointColor: 'rgba(210, 214, 222, 1)',
+          pointStrokeColor: '#c1c7d1',
+          pointHighlightFill: '#fff',
+          pointHighlightStroke: 'rgba(220,220,220,1)',
+          //data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1910, 2091, 1761]
+      data: [11680000,8508000,7196800,39129600,49819201,31220000,400000,52299600,16518400,56188725,29316900,45696100]
+        }
+      ]
+    }
+  
+    var salesChartOptions = {
+      maintainAspectRatio: false,
+      responsive: true,
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{
+          gridLines: {
+            display: false
+          }
+        }],
+        yAxes: [{
+          gridLines: {
+            display: false
+          }
+        }]
+      }
+    }
+  
+    // This will get the first returned node in the jQuery collection.
+    // eslint-disable-next-line no-unused-vars
+    var salesChart = new Chart(salesChartCanvas, { // lgtm[js/unused-local-variable]
+      type: 'line',
+      data: salesChartData,
+      options: salesChartOptions
+    })
+  
+    // Donut Chart
+    var pieChartCanvas = $('#sales-chart-canvas').get(0).getContext('2d')
+    var pieData = {
+      /*labels: [
+        'Alexandre Christie',
+        'Expedition',
+      'Daniel Klein',
+      'Q&Q',
+      'EXP',
+        'Mazzucato',
+        'ORIS'
+      ],*/
+    labels: [
+        'Unknown',
+        'Female',
+      'Male'
+      ],
+      datasets: [
+        {
+          //data: [764, 269, 32, 32, 24, 19, 4],
+          //backgroundColor: ['#dc3545', '#28a745', '#ffc107', '#17a2b8', '#007bff', '#6c757d', '#cccccc']
+      data: [837, 252, 127],
+      backgroundColor: ['#dc3545', '#007bff', '#ffc107']
+        }
+      ]
+    }
+    var pieOptions = {
+      legend: {
+        display: false
+      },
+      maintainAspectRatio: false,
+      responsive: true
+    }
+    // Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    // eslint-disable-next-line no-unused-vars
+    var pieChart = new Chart(pieChartCanvas, { // lgtm[js/unused-local-variable]
+      type: 'doughnut',
+      data: pieData,
+      options: pieOptions
+    })
+  
+    // Sales graph chart
+    var salesGraphChartCanvas = $('#line-chart').get(0).getContext('2d')
+    // $('#revenue-chart').get(0).getContext('2d');
+    
+    
+    var salesGraphChartData = {
+      //labels: ['00:00', '03:00', '06:00', '09:00', '12:00', '15:00', '18:00', '21:00', '23:59'],
+    labels: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
+      datasets: [
+        {
+          label: 'Order',
+          fill: false,
+          borderWidth: 2,
+          lineTension: 0,
+          spanGaps: true,
+          borderColor: '#efefef',
+          pointRadius: 3,
+          pointHoverRadius: 7,
+          pointColor: '#efefef',
+          pointBackgroundColor: '#efefef',
+          data: [22,27,32,36,44,42,48,58,59,39,85,107,90,46,87,60,60,59,46,27,37,44,26,35]
+        }
+      ]
+    }
+  
+    var salesGraphChartOptions = {
+      maintainAspectRatio: false,
+      responsive: true,
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{
+          ticks: {
+            fontColor: '#efefef'
+          },
+          gridLines: {
+            display: false,
+            color: '#efefef',
+            drawBorder: false
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            stepSize: 20,
+            fontColor: '#efefef'
+          },
+          gridLines: {
+            display: true,
+            color: '#efefef',
+            drawBorder: false
+          }
+        }]
+      }
+    }
+  
+    // This will get the first returned node in the jQuery collection.
+    // eslint-disable-next-line no-unused-vars
+    var salesGraphChart = new Chart(salesGraphChartCanvas, { // lgtm[js/unused-local-variable]
+      type: 'line',
+      data: salesGraphChartData,
+      options: salesGraphChartOptions
+    })
+    
+    
+    
+    
+    
+    
+    // Sales graph chart
+    var salesGraphChartCanvas2 = $('#line-chart2').get(0).getContext('2d')
+    // $('#revenue-chart').get(0).getContext('2d');
+    
+    
+    var salesGraphChartData2 = {
+      //labels: ['00:00', '03:00', '06:00', '09:00', '12:00', '15:00', '18:00', '21:00', '23:59'],
+    labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      datasets: [
+        {
+          label: 'Order',
+          fill: false,
+          borderWidth: 2,
+          lineTension: 0,
+          spanGaps: true,
+          borderColor: '#efefef',
+          pointRadius: 3,
+          pointHoverRadius: 7,
+          pointColor: '#efefef',
+          pointBackgroundColor: '#efefef',
+          data: [213,165,177,243,197,128,93]
+        }
+      ]
+    }
+  
+    var salesGraphChartOptions2 = {
+      maintainAspectRatio: false,
+      responsive: true,
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{
+          ticks: {
+            fontColor: '#efefef'
+          },
+          gridLines: {
+            display: false,
+            color: '#efefef',
+            drawBorder: false
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            stepSize: 20,
+            fontColor: '#efefef'
+          },
+          gridLines: {
+            display: true,
+            color: '#efefef',
+            drawBorder: false
+          }
+        }]
+      }
+    }
+  
+    // This will get the first returned node in the jQuery collection.
+    // eslint-disable-next-line no-unused-vars
+    var salesGraphChart2 = new Chart(salesGraphChartCanvas2, { // lgtm[js/unused-local-variable]
+      type: 'line',
+      data: salesGraphChartData2,
+      options: salesGraphChartOptions2
+    })
+    
+    
+    
+    
+    
+    // Sales graph chart
+    var salesGraphChartCanvas3 = $('#line-chart3').get(0).getContext('2d')
+    // $('#revenue-chart').get(0).getContext('2d');
+    
+    
+    var salesGraphChartData3 = {
+      //labels: ['00:00', '03:00', '06:00', '09:00', '12:00', '15:00', '18:00', '21:00', '23:59'],
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      datasets: [
+        {
+          label: 'Order',
+          fill: false,
+          borderWidth: 2,
+          lineTension: 0,
+          spanGaps: true,
+          borderColor: '#efefef',
+          pointRadius: 3,
+          pointHoverRadius: 7,
+          pointColor: '#efefef',
+          pointBackgroundColor: '#efefef',
+          data: [100,106,124,112,299,55,25,87,66,58,78,106]
+        }
+      ]
+    }
+  
+    var salesGraphChartOptions3 = {
+      maintainAspectRatio: false,
+      responsive: true,
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{
+          ticks: {
+            fontColor: '#efefef'
+          },
+          gridLines: {
+            display: false,
+            color: '#efefef',
+            drawBorder: false
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            stepSize: 50,
+            fontColor: '#efefef'
+          },
+          gridLines: {
+            display: true,
+            color: '#efefef',
+            drawBorder: false
+          }
+        }]
+      }
+    }
+  
+    // This will get the first returned node in the jQuery collection.
+    // eslint-disable-next-line no-unused-vars
+    var salesGraphChart3 = new Chart(salesGraphChartCanvas3, { // lgtm[js/unused-local-variable]
+      type: 'line',
+      data: salesGraphChartData3,
+      options: salesGraphChartOptions3
+    })
+    
+    
+    
+    
+  })
+  
+  </script>
+  <script>
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+    });
+  </script>
+  <script src="js/main.js"></script>
+  </body>
+</html>
