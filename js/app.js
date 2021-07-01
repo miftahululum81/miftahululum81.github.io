@@ -38,7 +38,7 @@ function displayConfirmNotification() {
 
     navigator.serviceWorker.ready
       .then(function(swreg) {
-        swreg.showNotification('Successfully subscribed (from SW)!', options);
+        swreg.showNotification('Successfully subscribed', options);
       });
   }
 }
