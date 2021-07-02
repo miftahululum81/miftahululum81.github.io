@@ -27,7 +27,7 @@ window.addEventListener('beforeinstallprompt', function(event) {
 function displayConfirmNotification() {
   if ('serviceWorker' in navigator) {
     var options = {
-      body: 'Miftahul Ulum /n Total Rp. 1.500.000,-',
+      body: 'Miftahul Ulum\r\nTotal Rp. 1.500.000,-',
       icon: 'https://www.timeconcept.com/storage/logo/logo-dark-square.png',
       //image: 'https://ibisnis.com/s3/images/5e831fa234182.webp',
       dir: 'ltr',
