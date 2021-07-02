@@ -27,13 +27,13 @@ window.addEventListener('beforeinstallprompt', function(event) {
 function displayConfirmNotification() {
   if ('serviceWorker' in navigator) {
     var options = {
-      body: 'You successfully subscribed to our Notification service!',
-      icon: 'https://www.timeconcept.com/storage/logo/logo-dark.png',
+      body: 'Miftahul Ulum /n Total Rp. 1.500.000,-',
+      icon: 'https://www.timeconcept.com/storage/logo/logo-dark-square.png',
       //image: 'https://ibisnis.com/s3/images/5e831fa234182.webp',
       dir: 'ltr',
       lang: 'en-US', // BCP 47,
       vibrate: [100, 50, 200],
-      badge: 'https://www.timeconcept.com/storage/logo/logo-dark.png'
+      badge: 'https://www.timeconcept.com/storage/logo/logo-dark-square.png'
     };
 
     navigator.serviceWorker.ready
