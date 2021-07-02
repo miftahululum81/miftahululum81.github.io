@@ -28,17 +28,17 @@ function displayConfirmNotification() {
   if ('serviceWorker' in navigator) {
     var options = {
       body: 'You successfully subscribed to our Notification service!',
-      icon: 'https://ibisnis.com/s3/thumbnails/5e7c74ec6acb1.webp',
-      image: 'https://ibisnis.com/s3/images/5e831fa234182.webp',
+      icon: 'https://www.timeconcept.com/storage/logo/logo-dark.png',
+      //image: 'https://ibisnis.com/s3/images/5e831fa234182.webp',
       dir: 'ltr',
       lang: 'en-US', // BCP 47,
       vibrate: [100, 50, 200],
-      badge: 'https://ibisnis.com/s3/thumbnails/5e7c74ec6acb1.webp'
+      badge: 'https://www.timeconcept.com/storage/logo/logo-dark.png'
     };
 
     navigator.serviceWorker.ready
       .then(function(swreg) {
-        swreg.showNotification('Successfully subscribed', options);
+        swreg.showNotification('New Order', options);
       });
   }
 }
