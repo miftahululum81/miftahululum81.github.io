@@ -1776,6 +1776,206 @@
                   </div>
                 </div>
               </div>
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Products Order</h3>
+    
+                  <div class="box-tools pull-right">
+                    
+                    
+                    
+                  </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <div class="table-responsive">
+                    <table class="table no-margin" id="BestSellerTable">
+                      <thead>
+                      <tr>
+                        <th>No.</th>
+                        <th>Product Name</th>
+                        <!--<th>Price</th>-->
+                        <th>Sales</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      
+                     <script type='text/javascript'>
+                     $(document).ready(function(){
+                
+                       $.ajax({
+                         url: 'https://timeconcept.com/pwa/bestseller/1',
+                         //headers: {  'Access-Control-Allow-Origin': 'http://127.0.0.1:5500' },
+                         type: 'get',
+                         dataType: 'json',
+                         success: function(response){
+                
+                           var len = 0;
+                           $('#BestSellerTable tbody').empty(); // Empty <tbody>
+                           if(response != null){
+                              len = response.length;
+                           }
+                 
+                 var totalsum = 0;
+                
+                           if(len > 0){
+                              for(var i=0; i<len; i++){
+                                 var id = response[i].id;
+                                 var product_name = response[i].product_name;
+                                 var price = response[i].price;
+                                 var total = response[i].total;
+                   
+                   var	number_string = price.toString(),
+                      sisa 	= number_string.length % 3,
+                      rupiah 	= number_string.substr(0, sisa),
+                      ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+                  
+                  if (ribuan) {
+                    separator = sisa ? '.' : '';
+                    rupiah += separator + ribuan.join('.');
+                  }
+                
+                                 var tr_str = "<tr>" +
+                                   "<td>" + (i+1) + "</td>" +
+                                   "<td>" + product_name + "</td>" +
+                                   //"<td>Rp. " + rupiah + "</td>" +
+                                   "<td>" + total + "</td>" +
+                                 "</tr>";
+                   
+                   totalsum += Number(total);
+                
+                                 $("#BestSellerTable tbody").append(tr_str);
+                              }
+                  
+                  var tr_str = "<tr>" +
+                                   "<td>&nbsp;</td>" +
+                                   "<td><strong>Total</strong></td>" +
+                     //"<td>&nbsp;</td>" +
+                                   "<td><strong>" + totalsum + "</strong></td>" +
+                                 "</tr>";
+                   
+                   $("#BestSellerTable tbody").append(tr_str);
+                   
+                           }else{
+                              var tr_str = "<tr>" +
+                                  "<td align='center' colspan='4'>No record found.</td>" +
+                              "</tr>";
+                
+                              $("#BestSellerTable tbody").append(tr_str);
+                           }
+                
+                         }
+                       });
+              
+          
+                       // Fetch all records
+                       /*$('#but_fetchall').click(function(){ fetchRecords(0); });
+                       $('#but_fetchtoday').click(function(){ fetchRecords(1); });
+                       $('#but_fetchweek').click(function(){ fetchRecords(2); });
+                       $('#but_fetchmonth').click(function(){ fetchRecords(3); });*/
+               
+               
+               /*$('#but_search').click(function(){
+                  var searchdate = $('#daterange-btn').val().trim();
+                    
+                    //if(searchdate != ''){
+                    fetchRecords(searchdate);
+                    //}
+            
+                 });*/
+         
+                
+                     });
+                
+                     function fetchRecords(id){
+                       $.ajax({
+                         url: 'https://timeconcept.com/pwa/bestseller/'+id,
+                         type: 'get',
+                         dataType: 'json',
+                         success: function(response){
+                
+                           var len = 0;
+                           $('#BestSellerTable tbody').empty(); // Empty <tbody>
+                           if(response != null){
+                              len = response.length;
+                           }
+                 
+                 var totalsum = 0;
+                
+                           if(len > 0){
+                              for(var i=0; i<len; i++){
+                                 var id = response[i].id;
+                                 var product_name = response[i].product_name;
+                                 var price = response[i].price;
+                                 var total = response[i].total;
+                   
+                   var	number_string = price.toString(),
+                      sisa 	= number_string.length % 3,
+                      rupiah 	= number_string.substr(0, sisa),
+                      ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+                  
+                  if (ribuan) {
+                    separator = sisa ? '.' : '';
+                    rupiah += separator + ribuan.join('.');
+                  }
+                
+                                 var tr_str = "<tr>" +
+                                   "<td>" + (i+1) + "</td>" +
+                                   "<td>" + product_name + "</td>" +
+                                   //"<td>Rp. " + rupiah + "</td>" +
+                                   "<td>" + total + "</td>" +
+                                 "</tr>";
+                   
+                   totalsum += Number(total);
+                
+                                 $("#BestSellerTable tbody").append(tr_str);
+                              }
+                  
+                   var tr_str = "<tr>" +
+                                   "<td>&nbsp;</td>" +
+                                   "<td><strong>Total</strong></td>" +
+                     //"<td>&nbsp;</td>" +
+                                   "<td><strong>" + totalsum + "</strong></td>" +
+                                 "</tr>";
+                   
+                   $("#BestSellerTable tbody").append(tr_str);
+                   
+                           }else{
+                              var tr_str = "<tr>" +
+                                  "<td align='center' colspan='4'>No record found.</td>" +
+                              "</tr>";
+                
+                              $("#BestSellerTable tbody").append(tr_str);
+                           }
+                
+                         }
+                       });
+                     }
+                     </script>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- /.box-body -->
+              </div>
+		    
+		    
+		    
+		    
   
   
   
