@@ -28,7 +28,7 @@ function displayConfirmNotification() {
   if ('serviceWorker' in navigator) {
     var options = {
       body: 'You successfully subscribed to our Notification service!',
-      //icon: 'https://www.timeconcept.com/storage/logo/logo-dark-square.png',
+      icon: 'https://www.timeconcept.com/storage/logo/logo-dark-square.png',
       //image: 'https://ibisnis.com/s3/images/5e831fa234182.webp',
       dir: 'ltr',
       lang: 'en-US', // BCP 47,
