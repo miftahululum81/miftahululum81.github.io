@@ -27,8 +27,8 @@ window.addEventListener('beforeinstallprompt', function(event) {
 function displayConfirmNotification() {
   if ('serviceWorker' in navigator) {
     var options = {
-      body: 'Miftahul Ulum\r\nTotal Rp. 1.500.000,-',
-      icon: 'https://www.timeconcept.com/storage/logo/logo-dark-square.png',
+      body: 'You successfully subscribed to our Notification service!',
+      //icon: 'https://www.timeconcept.com/storage/logo/logo-dark-square.png',
       //image: 'https://ibisnis.com/s3/images/5e831fa234182.webp',
       dir: 'ltr',
       lang: 'en-US', // BCP 47,
@@ -38,7 +38,7 @@ function displayConfirmNotification() {
 
     navigator.serviceWorker.ready
       .then(function(swreg) {
-        swreg.showNotification('New Order', options);
+        swreg.showNotification('Successfully subscribed!', options);
       });
   }
 }
@@ -49,7 +49,7 @@ function askForNotificationPermission() {
     if (result !== 'granted') {
       console.log('No notification permission granted!');
     } else {
-      //displayConfirmNotification();
+      displayConfirmNotification();
     }
   });
 }
