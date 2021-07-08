@@ -41,6 +41,9 @@
   <link rel="stylesheet" href="konten/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="konten/plugins/summernote/summernote-bs4.min.css">
+	
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase.js"></script>
   
   <style>
 	  .nav-sidebar .nav-treeview {
@@ -243,15 +246,15 @@
                 </p>
               </a>
             </li>
-		  
-	    <li class="nav-item">
+
+            <!--<li class="nav-item">
               <a href="#" class="enable-notifications nav-link">
                 <i class="nav-icon fas fa-chart-pie"></i>
                 <p>
                   Enable Notification
                 </p>
               </a>
-            </li>  
+            </li>-->
             
             
             <li class="nav-item" style="display:none; ">
@@ -328,10 +331,96 @@
             <div class="col-lg-3 col-6">
               <!-- small box -->
               <div class="small-box bg-info">
-                <div class="inner">
-                  <h3>1216</h3>
+                <div class="inner" id="TotalSales">
+                  <!--<h3>1216</h3>
+
+                  <p>Total Sales</p>-->
+                  <script type='text/javascript'>
+                    $(document).ready(function(){
+              
+                      $.ajax({
+                        url: 'https://timeconcept.com/pwa/totalsales/1',
+                        type: 'get',
+                        dataType: 'json',
+                        success: function(response7){
+   
+                          $('#TotalSales').empty(); // Empty <tbody>
+                
+                var totalsum = response7;
+                
+               var	number_string = response7.toString(),
+                   sisa 	= number_string.length % 3,
+                   rupiah 	= number_string.substr(0, sisa),
+                   ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+               
+               if (ribuan) {
+                 separator = sisa ? '.' : '';
+                 rupiah += separator + ribuan.join('.');
+               }
+               
+                          if(totalsum != null){
+                 var tr_str = "<h3>Rp. " + rupiah + "</h3><p>Total Sales</p>";
+                  
+                  $("#TotalSales").append(tr_str);
+                          }else{
+                             var tr_str = "<h3>Rp. 0</h3><p>Total Sales</p>";
+   
+                             $("#TotalSales").append(tr_str);
+                          }
+               
+                        }
+                      });
+              
+              
+              $('#but_search').click(function(){
+                 var searchdate7 = $('#daterange-btn').val().trim();
+                   
+                   //if(searchdate != ''){
+                   fetchRecords7(searchdate7);
+                   //}
+           
+                });
+        
+               
+                    });
+               
+                    function fetchRecords7(id){
+                      $.ajax({
+                        url: 'https://timeconcept.com/pwa/totalsales/'+id,
+                        type: 'get',
+                        dataType: 'json',
+                        success: function(response7){
+               
+                          $('#TotalSales').empty(); // Empty <tbody>
+                
+                var totalsum = response7;
+                
+                var	number_string = response7.toString(),
+                   sisa 	= number_string.length % 3,
+                   rupiah 	= number_string.substr(0, sisa),
+                   ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+               
+               if (ribuan) {
+                 separator = sisa ? '.' : '';
+                 rupiah += separator + ribuan.join('.');
+               }
+               
+                          if(totalsum != null){
+                 var tr_str = "<h3>Rp. " + rupiah + "</h3><p>Total Sales</p>";
+                  
+                  $("#TotalSales").append(tr_str);
+                          }else{
+                             var tr_str = "<h3>Rp. 0</h3><p>Total Sales</p>";
+   
+                             $("#TotalSales").append(tr_str);
+                          }
+               
+                        }
+                      });
+                    }
+                    </script>
   
-                  <p>Total Order</p>
+                  
                 </div>
                 <div class="icon">
                   <i class="ion ion-bag"></i>
@@ -343,10 +432,75 @@
             <div class="col-lg-3 col-6">
               <!-- small box -->
               <div class="small-box bg-success">
-                <div class="inner">
-                  <h3>899</h3>
+                <div class="inner" id="TotalOrder">
+                  <!--<h3>899</h3>
   
-                  <p>Products</p>
+                  <p>Products</p>-->
+                  <script type='text/javascript'>
+                    $(document).ready(function(){
+               
+                      $.ajax({
+                        url: 'https://timeconcept.com/pwa/totalorder/1',
+                        type: 'get',
+                        dataType: 'json',
+                        success: function(response6){
+   
+                          $('#TotalOrder').empty(); // Empty <tbody>
+                
+                var totalsum = response6;
+               
+                          if(totalsum != null){
+                 var tr_str = "<h3>" + totalsum + "</h3><p>Total Order</p>";
+                  
+                  $("#TotalOrder").append(tr_str);
+                          }else{
+                             var tr_str = "<h3>0</h3><p>Total Order</p>";
+   
+                             $("#TotalOrder").append(tr_str);
+                          }
+               
+                        }
+                      });
+              
+              
+              $('#but_search').click(function(){
+                 var searchdate6 = $('#daterange-btn').val().trim();
+                   
+                   //if(searchdate != ''){
+                   fetchRecords6(searchdate6);
+                   //}
+           
+                });
+        
+               
+                    });
+               
+                    function fetchRecords6(id){
+                      $.ajax({
+                        url: 'https://timeconcept.com/pwa/totalorder/'+id,
+                        type: 'get',
+                        dataType: 'json',
+                        success: function(response6){
+               
+                          $('#TotalOrder').empty(); // Empty <tbody>
+                
+                var totalsum = response6;
+               
+                          if(totalsum != null){
+                 var tr_str = "<h3>" + totalsum + "</h3><p>Total Order</p>";
+                  
+                  $("#TotalOrder").append(tr_str);
+                          }else{
+                             var tr_str = "<h3>0</h3><p>Total Order</p>";
+   
+                             $("#TotalOrder").append(tr_str);
+                          }
+               
+                        }
+                      });
+                    }
+                    </script>
+                  
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -357,14 +511,46 @@
             <!-- ./col -->
             <div class="col-lg-3 col-6">
               <!-- small box -->
-              <div class="small-box bg-warning">
-                <div class="inner">
-                  <h3>1300</h3>
+              <div class="small-box bg-danger">
+                <div class="inner" id="TotalProduct">
+                  <!--<h3>8059</h3>
   
-                  <p>Members</p>
+                  <p>Visitors</p>-->
+                  <script type='text/javascript'>
+                    $(document).ready(function(){
+               
+                      $.ajax({
+                        url: 'https://timeconcept.com/pwa/totalproduct',
+                        type: 'get',
+                        dataType: 'json',
+                        success: function(response6){
+   
+                          $('#TotalProduct').empty(); // Empty <tbody>
+                
+                var totalsum = response6;
+               
+                          if(totalsum != null){
+                 var tr_str = "<h3>" + totalsum + "</h3><p>Total Product</p>";
+                  
+                  $("#TotalProduct").append(tr_str);
+                          }else{
+                             var tr_str = "<h3>0</h3><p>Total Product</p>";
+   
+                             $("#TotalProduct").append(tr_str);
+                          }
+               
+                        }
+                      });
+              
+              
+               
+                    });
+               
+                    
+                    </script>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-person-add"></i>
+                  <i class="ion ion-pie-graph"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
@@ -372,14 +558,78 @@
             <!-- ./col -->
             <div class="col-lg-3 col-6">
               <!-- small box -->
-              <div class="small-box bg-danger">
-                <div class="inner">
-                  <h3>8059</h3>
+              <div class="small-box bg-warning">
+                <div class="inner" id="TotalMember">
+                  <!--<h3>1300</h3>
   
-                  <p>Visitors</p>
+                  <p>Members</p>-->
+                  <script type='text/javascript'>
+                    $(document).ready(function(){
+               
+                      $.ajax({
+                        url: 'https://timeconcept.com/pwa/totalmember/1',
+                        type: 'get',
+                        dataType: 'json',
+                        success: function(response8){
+   
+                          $('#TotalMember').empty(); // Empty <tbody>
+                
+                var totalsum = response8;
+               
+                          if(totalsum != null){
+                 var tr_str = "<h3>" + totalsum + "</h3><p>Total Member</p>";
+                  
+                  $("#TotalMember").append(tr_str);
+                          }else{
+                             var tr_str = "<h3>0</h3><p>Total Member</p>";
+   
+                             $("#TotalMember").append(tr_str);
+                          }
+               
+                        }
+                      });
+              
+              
+              $('#but_search').click(function(){
+                 var searchdate8 = $('#daterange-btn').val().trim();
+                   
+                   //if(searchdate != ''){
+                   fetchRecords8(searchdate8);
+                   //}
+           
+                });
+        
+               
+                    });
+               
+                    function fetchRecords8(id){
+                      $.ajax({
+                        url: 'https://timeconcept.com/pwa/totalmember/'+id,
+                        type: 'get',
+                        dataType: 'json',
+                        success: function(response8){
+               
+                          $('#TotalMember').empty(); // Empty <tbody>
+                
+                var totalsum = response8;
+               
+                          if(totalsum != null){
+                 var tr_str = "<h3>" + totalsum + "</h3><p>Total Member</p>";
+                  
+                  $("#TotalMember").append(tr_str);
+                          }else{
+                             var tr_str = "<h3>0</h3><p>Total Member</p>";
+   
+                             $("#TotalMember").append(tr_str);
+                          }
+               
+                        }
+                      });
+                    }
+                    </script>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
+                  <i class="ion ion-person-add"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
@@ -390,37 +640,373 @@
           
           <div class="row">
             <div class="col-sm-3 col-6">
-              <div class="description-block border-right">
+              <div class="description-block border-right" id="TotalPaid">
                 <span class="description-percentage text-success"><!--<i class="fas fa-caret-up"></i>--> 34%</span>
-                <h5 class="description-header">Rp. 664.187.028,00</h5>
-                <span class="description-text">TOTAL PAID</span>
+                <!--<h5 class="description-header">Rp. 664.187.028,00</h5>
+                <span class="description-text">TOTAL PAID</span>-->
+                <script type='text/javascript'>
+                  $(document).ready(function(){
+             
+                    $.ajax({
+                      url: 'https://timeconcept.com/pwa/totalpaid/1',
+                      type: 'get',
+                      dataType: 'json',
+                      success: function(response11){
+ 
+                        $('#TotalPaid').empty(); // Empty <tbody>
+              
+              var totalsum = response11;
+              
+              var	number_string = response11.toString(),
+                 sisa 	= number_string.length % 3,
+                 rupiah 	= number_string.substr(0, sisa),
+                 ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+             
+             if (ribuan) {
+               separator = sisa ? '.' : '';
+               rupiah += separator + ribuan.join('.');
+             }
+             
+                        if(totalsum != null){
+               var tr_str = "<h5 class='description-header'>Rp. " + rupiah + "</h5><span class='description-text text-success'>TOTAL PAID</span>";
+                
+                $("#TotalPaid").append(tr_str);
+                        }else{
+                           var tr_str = "<h5 class='description-header'>Rp. 0</h5><span class='description-text text-success'>TOTAL PAID</span>";
+ 
+                           $("#TotalPaid").append(tr_str);
+                        }
+             
+                      }
+                    });
+            
+            
+            $('#but_search').click(function(){
+               var searchdate11 = $('#daterange-btn').val().trim();
+                 
+                 //if(searchdate != ''){
+                 fetchRecords11(searchdate11);
+                 //}
+         
+              });
+      
+             
+                  });
+             
+                  function fetchRecords11(id){
+                    $.ajax({
+                      url: 'https://timeconcept.com/pwa/totalpaid/'+id,
+                      type: 'get',
+                      dataType: 'json',
+                      success: function(response11){
+             
+                        $('#TotalPaid').empty(); // Empty <tbody>
+              
+              var totalsum = response11;
+              
+              var	number_string = response11.toString(),
+                 sisa 	= number_string.length % 3,
+                 rupiah 	= number_string.substr(0, sisa),
+                 ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+             
+             if (ribuan) {
+               separator = sisa ? '.' : '';
+               rupiah += separator + ribuan.join('.');
+             }
+             
+                        if(totalsum != null){
+               var tr_str = "<h5 class='description-header'>Rp. " + rupiah + "</h5><span class='description-text text-success'>TOTAL PAID</span>";
+                
+                $("#TotalPaid").append(tr_str);
+                        }else{
+                           var tr_str = "<h5 class='description-header'>Rp. 0</h5><span class='description-text text-success'>TOTAL PAID</span>";
+ 
+                           $("#TotalPaid").append(tr_str);
+                        }
+             
+                      }
+                    });
+                  }
+                  </script>
               </div>
               <!-- /.description-block -->
             </div>
             <!-- /.col -->
             <div class="col-sm-3 col-6">
-              <div class="description-block border-right">
+              <div class="description-block border-right" id="TotalCanceled">
                 <span class="description-percentage text-danger"><!--<i class="fas fa-caret-left"></i>--> 19%</span>
-                <h5 class="description-header">Rp. 364.962.900,00</h5>
-                <span class="description-text">TOTAL CANCELED</span>
+                <!--<h5 class="description-header">Rp. 364.962.900,00</h5>
+                <span class="description-text">TOTAL CANCELED</span>-->
+                <script type='text/javascript'>
+                  $(document).ready(function(){
+             
+                    $.ajax({
+                      url: 'https://timeconcept.com/pwa/totalcanceled/1',
+                      type: 'get',
+                      dataType: 'json',
+                      success: function(response13){
+ 
+                        $('#TotalCanceled').empty(); // Empty <tbody>
+              
+              var totalsum = response13;
+              
+              var	number_string = response13.toString(),
+                 sisa 	= number_string.length % 3,
+                 rupiah 	= number_string.substr(0, sisa),
+                 ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+             
+             if (ribuan) {
+               separator = sisa ? '.' : '';
+               rupiah += separator + ribuan.join('.');
+             }
+             
+                        if(totalsum != null){
+               var tr_str = "<h5 class='description-header'>Rp. " + rupiah + "</h5><span class='description-text text-danger'>TOTAL CANCELED</span>";
+                
+                $("#TotalCanceled").append(tr_str);
+                        }else{
+                           var tr_str = "<h5 class='description-header'>Rp. 0</h5><span class='description-text text-danger'>TOTAL CANCELED</span>";
+ 
+                           $("#TotalCanceled").append(tr_str);
+                        }
+             
+                      }
+                    });
+            
+            
+            $('#but_search').click(function(){
+               var searchdate13 = $('#daterange-btn').val().trim();
+                 
+                 //if(searchdate != ''){
+                 fetchRecords13(searchdate13);
+                 //}
+         
+              });
+      
+             
+                  });
+             
+                  function fetchRecords13(id){
+                    $.ajax({
+                      url: 'https://timeconcept.com/pwa/totalcanceled/'+id,
+                      type: 'get',
+                      dataType: 'json',
+                      success: function(response13){
+             
+                        $('#TotalCanceled').empty(); // Empty <tbody>
+              
+              var totalsum = response13;
+              
+              var	number_string = response13.toString(),
+                 sisa 	= number_string.length % 3,
+                 rupiah 	= number_string.substr(0, sisa),
+                 ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+             
+             if (ribuan) {
+               separator = sisa ? '.' : '';
+               rupiah += separator + ribuan.join('.');
+             }
+             
+                        if(totalsum != null){
+               var tr_str = "<h5 class='description-header'>Rp. " + rupiah + "</h5><span class='description-text text-danger'>TOTAL CANCELED</span>";
+                
+                $("#TotalCanceled").append(tr_str);
+                        }else{
+                           var tr_str = "<h5 class='description-header'>Rp. 0</h5><span class='description-text text-danger'>TOTAL CANCELED</span>";
+ 
+                           $("#TotalCanceled").append(tr_str);
+                        }
+             
+                      }
+                    });
+                  }
+                  </script>
               </div>
               <!-- /.description-block -->
             </div>
             <!-- /.col -->
             <div class="col-sm-3 col-6">
-              <div class="description-block border-right">
+              <div class="description-block border-right" id="TotalExpire">
                 <span class="description-percentage text-warning"><!--<i class="fas fa-caret-up"></i>--> 17%</span>
-                <h5 class="description-header">Rp. 341.066.300,00</h5>
-                <span class="description-text">TOTAL EXPIRE</span>
+                <!--<h5 class="description-header">Rp. 341.066.300,00</h5>
+                <span class="description-text">TOTAL EXPIRE</span>-->
+                <script type='text/javascript'>
+                 $(document).ready(function(){
+            
+                   $.ajax({
+                     url: 'https://timeconcept.com/pwa/totalexpire/1',
+                     type: 'get',
+                     dataType: 'json',
+                     success: function(response12){
+
+                       $('#TotalExpire').empty(); // Empty <tbody>
+					   
+					   var totalsum = response12;
+					   
+					   var	number_string = response12.toString(),
+								sisa 	= number_string.length % 3,
+								rupiah 	= number_string.substr(0, sisa),
+								ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+						
+						if (ribuan) {
+							separator = sisa ? '.' : '';
+							rupiah += separator + ribuan.join('.');
+						}
+            
+                       if(totalsum != null){
+						  var tr_str = "<h5 class='description-header'>Rp. " + rupiah + "</h5><span class='description-text text-warning'>TOTAL EXPIRE</span>";
+							 
+						   $("#TotalExpire").append(tr_str);
+                       }else{
+                          var tr_str = "<h5 class='description-header'>Rp. 0</h5><span class='description-text text-warning'>TOTAL EXPIRE</span>";
+
+                          $("#TotalExpire").append(tr_str);
+                       }
+            
+                     }
+                   });
+				   
+				   
+				   $('#but_search').click(function(){
+						  var searchdate12 = $('#daterange-btn').val().trim();
+								
+							  //if(searchdate != ''){
+								fetchRecords12(searchdate12);
+							  //}
+				
+					   });
+	   
+            
+                 });
+            
+                 function fetchRecords12(id){
+                   $.ajax({
+                     url: 'https://timeconcept.com/pwa/totalexpire/'+id,
+                     type: 'get',
+                     dataType: 'json',
+                     success: function(response12){
+            
+                       $('#TotalExpire').empty(); // Empty <tbody>
+					   
+					   var totalsum = response12;
+					   
+					   var	number_string = response12.toString(),
+								sisa 	= number_string.length % 3,
+								rupiah 	= number_string.substr(0, sisa),
+								ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+						
+						if (ribuan) {
+							separator = sisa ? '.' : '';
+							rupiah += separator + ribuan.join('.');
+						}
+            
+                       if(totalsum != null){
+						  var tr_str = "<h5 class='description-header'>Rp. " + rupiah + "</h5><span class='description-text text-warning'>TOTAL EXPIRE</span>";
+							 
+						   $("#TotalExpire").append(tr_str);
+                       }else{
+                          var tr_str = "<h5 class='description-header'>Rp. 0</h5><span class='description-text text-warning'>TOTAL EXPIRE</span>";
+
+                          $("#TotalExpire").append(tr_str);
+                       }
+            
+                     }
+                   });
+                 }
+                 </script>
               </div>
               <!-- /.description-block -->
             </div>
             <!-- /.col -->
             <div class="col-sm-3 col-6">
-              <div class="description-block">
+              <div class="description-block" id="TotalDeny">
                 <span class="description-percentage text-danger"><!--<i class="fas fa-caret-down"></i>--> 2%</span>
-                <h5 class="description-header">Rp. 33.287.800,00</h5>
-                <span class="description-text">TOTAL DENY</span>
+                <!--<h5 class="description-header">Rp. 33.287.800,00</h5>
+                <span class="description-text">TOTAL DENY</span>-->
+                <script type='text/javascript'>
+                  $(document).ready(function(){
+             
+                    $.ajax({
+                      url: 'https://timeconcept.com/pwa/totaldeny/1',
+                      type: 'get',
+                      dataType: 'json',
+                      success: function(response13){
+ 
+                        $('#TotalDeny').empty(); // Empty <tbody>
+              
+              var totalsum = response13;
+              
+              var	number_string = response13.toString(),
+                 sisa 	= number_string.length % 3,
+                 rupiah 	= number_string.substr(0, sisa),
+                 ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+             
+             if (ribuan) {
+               separator = sisa ? '.' : '';
+               rupiah += separator + ribuan.join('.');
+             }
+             
+                        if(totalsum != null){
+               var tr_str = "<h5 class='description-header'>Rp. " + rupiah + "</h5><span class='description-text text-info'>TOTAL DENY</span>";
+                
+                $("#TotalDeny").append(tr_str);
+                        }else{
+                           var tr_str = "<h5 class='description-header'>Rp. 0</h5><span class='description-text text-info'>TOTAL DENY</span>";
+ 
+                           $("#TotalDeny").append(tr_str);
+                        }
+             
+                      }
+                    });
+            
+            
+            $('#but_search').click(function(){
+               var searchdate13 = $('#daterange-btn').val().trim();
+                 
+                 //if(searchdate != ''){
+                 fetchRecords13(searchdate13);
+                 //}
+         
+              });
+      
+             
+                  });
+             
+                  function fetchRecords13(id){
+                    $.ajax({
+                      url: 'https://timeconcept.com/pwa/totaldeny/'+id,
+                      type: 'get',
+                      dataType: 'json',
+                      success: function(response13){
+             
+                        $('#TotalDeny').empty(); // Empty <tbody>
+              
+              var totalsum = response13;
+              
+              var	number_string = response13.toString(),
+                 sisa 	= number_string.length % 3,
+                 rupiah 	= number_string.substr(0, sisa),
+                 ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+             
+             if (ribuan) {
+               separator = sisa ? '.' : '';
+               rupiah += separator + ribuan.join('.');
+             }
+             
+                        if(totalsum != null){
+               var tr_str = "<h5 class='description-header'>Rp. " + rupiah + "</h5><span class='description-text text-info'>TOTAL DENY</span>";
+                
+                $("#TotalDeny").append(tr_str);
+                        }else{
+                           var tr_str = "<h5 class='description-header'>Rp. 0</h5><span class='description-text text-info'>TOTAL DENY</span>";
+ 
+                           $("#TotalDeny").append(tr_str);
+                        }
+             
+                      }
+                    });
+                  }
+                  </script>
               </div>
               <!-- /.description-block -->
             </div>
@@ -920,45 +1506,134 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body p-0">
-                  <ul class="users-list clearfix">
-                                      <li>
+                  <ul class="users-list clearfix" id="LatestRegistrationTable">
+                    <script type='text/javascript'>
+                      $(document).ready(function(){
+                 
+                        $.ajax({
+                          url: 'https://timeconcept.com/pwa/latestregistration',
+                          type: 'get',
+                          dataType: 'json',
+                          success: function(response14){
+                 
+                            var len = 0;
+                            $('#LatestRegistrationTable tbody').empty(); // Empty <tbody>
+                            if(response14 != null){
+                               len = response14.length;
+                            }
+                  
+                  var totalsum = 0;
+                 
+                            if(len > 0){
+                               for(var i=0; i<len; i++){
+                                  var id = response14[i].id;
+                                  var name = response14[i].name;
+                                  var created_at = response14[i].date_registration;
+                 
+                                  var tr_str = "<li><img src='konten/dist/img/avatar.jpg'><a class='users-list-name' href='#'>" + name + "</a><span class='users-list-date'>" + created_at + "</span></li>";
+                 
+                                  $("#LatestRegistrationTable").append(tr_str);
+                               }
+                   
+                            }else{
+                               var tr_str = "No record found.";
+                 
+                               $("#LatestRegistrationTable").append(tr_str);
+                            }
+                 
+                          }
+                        });				   
+                
+                $('#but_search').click(function(){
+                   var searchdate16 = $('#daterange-btn').val().trim();
+                     
+                     //if(searchdate != ''){
+                     fetchRecords16(searchdate16);
+                     //}
+             
+                  });
+          
+                 
+                      });
+
+
+                      function fetchRecords16(id){
+                        $.ajax({
+                          url: 'https://timeconcept.com/pwa/latestregistration/'+id,
+                          type: 'get',
+                          dataType: 'json',
+                          success: function(response3){
+                 
+                            var len = 0;
+                            $('#LatestRegistrationTable tbody').empty(); // Empty <tbody>
+                            if(response3 != null){
+                               len = response3.length;
+                            }
+                  
+                  var totalsum = 0;
+                 
+                            if(len > 0){
+                               for(var i=0; i<len; i++){
+                                  var id = response3[i].id;
+                                  var name = response3[i].name;
+                                  var created_at = response3[i].date_registration;
+                   
+                                  var tr_str = "<li><img src='konten/dist/img/avatar.jpg'><a class='users-list-name' href='#'>" + name + "</a><span class='users-list-date'>" + created_at + "</span></li>";
+                 
+                                  $("#LatestRegistrationTable tbody").append(tr_str);
+                               }
+                   
+                  
+                    
+                            }else{
+                               var tr_str = "No record found.";
+                 
+                               $("#LatestRegistrationTable tbody").append(tr_str);
+                            }
+                 
+                          }
+                        });
+                      }
+                      </script>
+
+                                      <!--<li>
                       <img src="konten/dist/img/avatar.jpg" alt="User Image">
-                      <a class="users-list-name" href="#">Member 1</a>
+                      <a class="users-list-name" href="#">Muhammad keviin</a>
                       <span class="users-list-date">08 Jun 2021</span>
                     </li>
                                       <li>
                       <img src="konten/dist/img/avatar.jpg" alt="User Image">
-                      <a class="users-list-name" href="#">Member 2</a>
+                      <a class="users-list-name" href="#">Khusembay Chanel</a>
                       <span class="users-list-date">05 Jun 2021</span>
                     </li>
                                       <li>
                       <img src="konten/dist/img/avatar.jpg" alt="User Image">
-                      <a class="users-list-name" href="#">Member 3</a>
+                      <a class="users-list-name" href="#">Claudia Andaresta</a>
                       <span class="users-list-date">05 Jun 2021</span>
                     </li>
                                       <li>
                       <img src="konten/dist/img/avatar.jpg" alt="User Image">
-                      <a class="users-list-name" href="#">Member 4</a>
+                      <a class="users-list-name" href="#">Ashwini Thadani</a>
                       <span class="users-list-date">04 Jun 2021</span>
                     </li>
                                       <li>
                       <img src="konten/dist/img/avatar.jpg" alt="User Image">
-                      <a class="users-list-name" href="#">Member 5</a>
+                      <a class="users-list-name" href="#">Iwan saputra</a>
                       <span class="users-list-date">03 Jun 2021</span>
                     </li>
                                       <li>
                       <img src="konten/dist/img/avatar.jpg" alt="User Image">
-                      <a class="users-list-name" href="#">Member 6</a>
+                      <a class="users-list-name" href="#">vifx broker</a>
                       <span class="users-list-date">02 Jun 2021</span>
-                    </li>
+                    </li>-->
                                       
                   </ul>
                   <!-- /.users-list -->
                 </div>
                 <!-- /.card-body -->
-                <div class="card-footer text-center">
+                <!--<div class="card-footer text-center">
                   <a href="javascript:">View All Member</a>
-                </div>
+                </div>-->
                 <!-- /.card-footer -->
               </div>
               
@@ -967,348 +1642,10 @@
               <div class="col-lg-6">
               
               
-        <div style="display:none; ">
-        <!-- Info Boxes Style 2 -->
-              <div class="info-box mb-3 bg-warning">
-                <span class="info-box-icon"><i class="fas fa-tag"></i></span>
-  
-                <div class="info-box-content">
-                  <span class="info-box-text">Business Profile</span>
-                  <span class="info-box-number">180</span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.info-box -->
-              <div class="info-box mb-3 bg-success">
-                <span class="info-box-icon"><i class="far fa-heart"></i></span>
-  
-                <div class="info-box-content">
-                  <span class="info-box-text">Restaurants</span>
-                  <span class="info-box-number">278</span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.info-box -->
-              <div class="info-box mb-3 bg-danger">
-                <span class="info-box-icon"><i class="fas fa-cloud-download-alt"></i></span>
-  
-                <div class="info-box-content">
-                  <span class="info-box-text">Hotels</span>
-                  <span class="info-box-number">322</span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.info-box -->
-              <div class="info-box mb-3 bg-info">
-                <span class="info-box-icon"><i class="far fa-comment"></i></span>
-  
-                <div class="info-box-content">
-                  <span class="info-box-text">Destinations</span>
-                  <span class="info-box-number">185</span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.info-box -->
-              <div class="info-box mb-3 bg-warning">
-                <span class="info-box-icon"><i class="fas fa-school"></i></span>
-  
-                <div class="info-box-content">
-                  <span class="info-box-text">Educations</span>
-                  <span class="info-box-number">185</span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.info-box -->
-              <div class="info-box mb-3 bg-success">
-                <span class="info-box-icon"><i class="far fa-comment"></i></span>
-  
-                <div class="info-box-content">
-                  <span class="info-box-text">Important Numbers</span>
-                  <span class="info-box-number">185</span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.info-box -->
-              </div>
               
               
               
-              <div class="card">
-                <div class="card-header border-0">
-                  <h3 class="card-title">Top Order</h3>
-                  <div class="card-tools">
-                    <ul class="nav nav-pills ml-auto">
-                      <li class="nav-item">
-                        <a class="nav-link active" href="#products2" data-toggle="tab">Products</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#brands" data-toggle="tab">Brands</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#members" data-toggle="tab">Members</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#cities" data-toggle="tab">Cities</a>
-                      </li>
-                    </ul>
-                    <!--<button type="button" class="btn btn-tool" data-card-widget="collapse">
-                      <i class="fas fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove">
-                      <i class="fas fa-times"></i>
-                    </button>-->
-                  </div>
-                </div>
-                <div class="card-body table-responsive p-0">
-                <div class="tab-content p-0">
-                    <!-- Morris chart - Sales -->
-                    <div class="tab-pane active" id="products2">
-                      <table class="table table-striped table-valign-middle">
-                        <thead>
-                        <tr>
-                          <th>No.</th>
-                          <th>Product</th>
-                          <th>Orders</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                                                                                          <tr>
-                          <td>1</td>
-                          <td>Product 1</td>
-                          <td>80</td>
-                        </tr>
-                                                                    <tr>
-                          <td>2</td>
-                          <td>Product 2</td>
-                          <td>31</td>
-                        </tr>
-                                                                    <tr>
-                          <td>3</td>
-                          <td>Product 3</td>
-                          <td>30</td>
-                        </tr>
-                                                                    <tr>
-                          <td>4</td>
-                          <td>Product 4</td>
-                          <td>27</td>
-                        </tr>
-                                                                    <tr>
-                          <td>5</td>
-                          <td>Product 5</td>
-                          <td>20</td>
-                        </tr>
-                                                                    <tr>
-                          <td>6</td>
-                          <td>Product 6</td>
-                          <td>20</td>
-                        </tr>
-                                                                    <tr>
-                          <td>7</td>
-                          <td>Product 7</td>
-                          <td>20</td>
-                        </tr>
-                                                                    <tr>
-                          <td>8</td>
-                          <td>Product 8</td>
-                          <td>20</td>
-                        </tr>
-                                                                    <tr>
-                          <td>9</td>
-                          <td>Product 9</td>
-                          <td>19</td>
-                        </tr>
-                                                                    <tr>
-                          <td>10</td>
-                          <td>Product 10</td>
-                          <td>19</td>
-                        </tr>
-                                              </tbody>
-                      </table>
-                    </div>
-                    <div class="tab-pane" id="brands">
-                      <table class="table table-striped table-valign-middle">
-                        <thead>
-                        <tr>
-                          <th>No.</th>
-                          <th>Brand</th>
-                          <th>Orders</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                                                                                          <tr>
-                          <td>1</td>
-                          <td>Brand 1</td>
-                          <td>764</td>
-                        </tr>
-                                                                    <tr>
-                          <td>2</td>
-                          <td>Brand 2</td>
-                          <td>269</td>
-                        </tr>
-                                                                    <tr>
-                          <td>3</td>
-                          <td>Brand 3</td>
-                          <td>32</td>
-                        </tr>
-                                                                    <tr>
-                          <td>4</td>
-                          <td>Brand 4</td>
-                          <td>31</td>
-                        </tr>
-                                                                    <tr>
-                          <td>5</td>
-                          <td>Brand 5</td>
-                          <td>24</td>
-                        </tr>
-                                                                    <tr>
-                          <td>6</td>
-                          <td>Brand 6</td>
-                          <td>19</td>
-                        </tr>
-                                                                    <tr>
-                          <td>7</td>
-                          <td>Brand 7</td>
-                          <td>4</td>
-                        </tr>
-                                                                    <tr>
-                          <td>8</td>
-                          <td>Brand 8</td>
-                          <td>1</td>
-                        </tr>
-                                              </tbody>
-                      </table>
-                    </div>
-                    <div class="tab-pane" id="members">
-                      <table class="table table-striped table-valign-middle">
-                        <thead>
-                        <tr>
-                          <th>No.</th>
-                          <th>Member</th>
-                          <th>Orders</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                                                                                          <tr>
-                          <td>1</td>
-                          <td>Member 1</td>
-                          <td>27</td>
-                        </tr>
-                                                                    <tr>
-                          <td>2</td>
-                          <td>Member 2</td>
-                          <td>26</td>
-                        </tr>
-                                                                    <tr>
-                          <td>3</td>
-                          <td>Member 3</td>
-                          <td>24</td>
-                        </tr>
-                                                                    <tr>
-                          <td>4</td>
-                          <td>Member 4</td>
-                          <td>15</td>
-                        </tr>
-                                                                    <tr>
-                          <td>5</td>
-                          <td>Member 5</td>
-                          <td>12</td>
-                        </tr>
-                                                                    <tr>
-                          <td>6</td>
-                          <td>Member 6</td>
-                          <td>11</td>
-                        </tr>
-                                                                    <tr>
-                          <td>7</td>
-                          <td>Member 7</td>
-                          <td>9</td>
-                        </tr>
-                                                                    <tr>
-                          <td>8</td>
-                          <td>Member 8</td>
-                          <td>8</td>
-                        </tr>
-                                                                    <tr>
-                          <td>9</td>
-                          <td>Member 9</td>
-                          <td>8</td>
-                        </tr>
-                                                                    <tr>
-                          <td>10</td>
-                          <td>Member 10</td>
-                          <td>7</td>
-                        </tr>
-                                              </tbody>
-                      </table>
-                    </div>
-                    <div class="tab-pane" id="cities">
-                      <table class="table table-striped table-valign-middle">
-                        <thead>
-                        <tr>
-                          <th>No.</th>
-                          <th>City</th>
-                          <th>Orders</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                                                                                          <tr>
-                          <td>1</td>
-                          <td>Jakarta Barat</td>
-                          <td>58</td>
-                        </tr>
-                                                                    <tr>
-                          <td>2</td>
-                          <td>Surabaya</td>
-                          <td>50</td>
-                        </tr>
-                                                                    <tr>
-                          <td>3</td>
-                          <td>TANGERANG</td>
-                          <td>43</td>
-                        </tr>
-                                                                    <tr>
-                          <td>4</td>
-                          <td>Surabaya - Kota</td>
-                          <td>38</td>
-                        </tr>
-                                                                    <tr>
-                          <td>5</td>
-                          <td>Jakarta Timur</td>
-                          <td>33</td>
-                        </tr>
-                                                                    <tr>
-                          <td>6</td>
-                          <td>Medan</td>
-                          <td>31</td>
-                        </tr>
-                                                                    <tr>
-                          <td>7</td>
-                          <td>Jakarta Utara - Kota</td>
-                          <td>29</td>
-                        </tr>
-                                                                    <tr>
-                          <td>8</td>
-                          <td>Bandung</td>
-                          <td>25</td>
-                        </tr>
-                                                                    <tr>
-                          <td>9</td>
-                          <td>Jakarta selatan</td>
-                          <td>24</td>
-                        </tr>
-                                                                    <tr>
-                          <td>10</td>
-                          <td>Semarang</td>
-                          <td>21</td>
-                        </tr>
-                                              </tbody>
-                      </table>
-                    </div>
-                    
-                  </div>
-                  
-                </div>
-              </div>
+              
               
               
               
@@ -1337,7 +1674,7 @@
                 <div class="tab-content p-0">
                     <!-- Morris chart - Sales -->
                     <div class="tab-pane active" id="products">
-                      <table class="table table-striped table-valign-middle">
+                      <table class="table table-striped table-valign-middle" id="ViewedProductTable">
                         <thead>
                         <tr>
                           <th>No.</th>
@@ -1346,61 +1683,128 @@
                         </tr>
                         </thead>
                         <tbody>
-                                                                                          <tr>
-                          <td>1</td>
-                          <td>Product 1</td>
-                          <td>20229</td>
-                        </tr>
-                                                                    <tr>
-                          <td>2</td>
-                          <td>Product 2</td>
-                          <td>10505</td>
-                        </tr>
-                                                                    <tr>
-                          <td>3</td>
-                          <td>Product 3</td>
-                          <td>7284</td>
-                        </tr>
-                                                                    <tr>
-                          <td>4</td>
-                          <td>Product 4</td>
-                          <td>7201</td>
-                        </tr>
-                                                                    <tr>
-                          <td>5</td>
-                          <td>Product 5</td>
-                          <td>6626</td>
-                        </tr>
-                                                                    <tr>
-                          <td>6</td>
-                          <td>Product 6</td>
-                          <td>6063</td>
-                        </tr>
-                                                                    <tr>
-                          <td>7</td>
-                          <td>Product 7</td>
-                          <td>4383</td>
-                        </tr>
-                                                                    <tr>
-                          <td>8</td>
-                          <td>Product 8</td>
-                          <td>3835</td>
-                        </tr>
-                                                                    <tr>
-                          <td>9</td>
-                          <td>Product 9</td>
-                          <td>3382</td>
-                        </tr>
-                                                                    <tr>
-                          <td>10</td>
-                          <td>Product 10</td>
-                          <td>3220</td>
-                        </tr>
-                                              </tbody>
+                          <script type='text/javascript'>
+                            $(document).ready(function(){
+                       
+                              $.ajax({
+                                url: 'https://timeconcept.com/pwa/viewedproduct',
+                                type: 'get',
+                                dataType: 'json',
+                                success: function(response14){
+                       
+                                  var len = 0;
+                                  $('#ViewedProductTable tbody').empty(); // Empty <tbody>
+                                  if(response14 != null){
+                                     len = response14.length;
+                                  }
+                        
+                        var totalsum = 0;
+                       
+                                  if(len > 0){
+                                     for(var i=0; i<len; i++){
+                                        var id = response14[i].id;
+                                        var product_name = response14[i].title;
+                                        var total = response14[i].viewed;
+                       
+                                        var tr_str = "<tr>" +
+                                          "<td>" + (i+1) + "</td>" +
+                                          "<td style='text-transform:capitalize; '>" + product_name + "</td>" +
+                                          "<td>" + total + "</td>" +
+                                        "</tr>";
+                          
+                          totalsum += Number(total);
+                       
+                                        $("#ViewedProductTable tbody").append(tr_str);
+                                     }
+                         
+                         var tr_str = "<tr>" +
+                                          "<td>&nbsp;</td>" +
+                                          "<td><strong>Total</strong></td>" +
+                                          "<td><strong>" + totalsum + "</strong></td>" +
+                                        "</tr>";
+                          
+                          $("#ViewedProductTable tbody").append(tr_str);
+                                  }else{
+                                     var tr_str = "<tr>" +
+                                         "<td align='center' colspan='3'>No record found.</td>" +
+                                     "</tr>";
+                       
+                                     $("#ViewedProductTable tbody").append(tr_str);
+                                  }
+                       
+                                }
+                              });				   
+                      
+                      $('#but_search').click(function(){
+                         var searchdate14 = $('#daterange-btn').val().trim();
+                           
+                           //if(searchdate != ''){
+                           fetchRecords14(searchdate14);
+                           //}
+                   
+                        });
+                
+                       
+                            });
+
+
+                            function fetchRecords14(id){
+                              $.ajax({
+                                url: 'https://timeconcept.com/pwa/viewedproduct/'+id,
+                                type: 'get',
+                                dataType: 'json',
+                                success: function(response3){
+                       
+                                  var len = 0;
+                                  $('#ViewedProductTable tbody').empty(); // Empty <tbody>
+                                  if(response3 != null){
+                                     len = response3.length;
+                                  }
+                        
+                        var totalsum = 0;
+                       
+                                  if(len > 0){
+                                     for(var i=0; i<len; i++){
+                                        var id = response3[i].id;
+                                        var product_name = response3[i].product_name;
+                                        var total = response3[i].viewed;
+                         
+                                        var tr_str = "<tr>" +
+                                          "<td>" + (i+1) + "</td>" +
+                                          "<td style='text-transform:capitalize; '>" + product_name + "</td>" +
+                                          "<td>" + total + "</td>" +
+                                        "</tr>";
+                          
+                          totalsum += Number(total);
+                       
+                                        $("#ViewedProductTable tbody").append(tr_str);
+                                     }
+                         
+                         var tr_str = "<tr>" +
+                                          "<td>&nbsp;</td>" +
+                                          "<td><strong>Total</strong></td>" +
+                                          "<td><strong>" + totalsum + "</strong></td>" +
+                                        "</tr>";
+                          
+                          $("#ViewedProductTable tbody").append(tr_str);
+                          
+                                  }else{
+                                     var tr_str = "<tr>" +
+                                         "<td align='center' colspan='3'>No record found.</td>" +
+                                     "</tr>";
+                       
+                                     $("#ViewedProductTable tbody").append(tr_str);
+                                  }
+                       
+                                }
+                              });
+                            }
+                            </script>
+                        </tbody>
                       </table>
                     </div>
                     <div class="tab-pane" id="categories">
-                      <table class="table table-striped table-valign-middle">
+                      <table class="table table-striped table-valign-middle" id="ViewedCategoryTable">
                         <thead>
                         <tr>
                           <th>No.</th>
@@ -1409,57 +1813,124 @@
                         </tr>
                         </thead>
                         <tbody>
-                                                                                          <tr>
-                          <td>1</td>
-                          <td>Category 1</td>
-                          <td>17711</td>
-                        </tr>
-                                                                    <tr>
-                          <td>2</td>
-                          <td>Category 2</td>
-                          <td>6691</td>
-                        </tr>
-                                                                    <tr>
-                          <td>3</td>
-                          <td>Category 3</td>
-                          <td>5522</td>
-                        </tr>
-                                                                    <tr>
-                          <td>4</td>
-                          <td>Category 4</td>
-                          <td>3612</td>
-                        </tr>
-                                                                    <tr>
-                          <td>5</td>
-                          <td>Category 5</td>
-                          <td>3055</td>
-                        </tr>
-                                                                    <tr>
-                          <td>6</td>
-                          <td>Category 6</td>
-                          <td>1525</td>
-                        </tr>
-                                                                    <tr>
-                          <td>7</td>
-                          <td>Category 7</td>
-                          <td>1497</td>
-                        </tr>
-                                                                    <tr>
-                          <td>8</td>
-                          <td>Category 8</td>
-                          <td>1360</td>
-                        </tr>
-                                                                    <tr>
-                          <td>9</td>
-                          <td>Category 9</td>
-                          <td>1185</td>
-                        </tr>
-                                                                    <tr>
-                          <td>10</td>
-                          <td>Category 10</td>
-                          <td>964</td>
-                        </tr>
-                                              </tbody>
+                          <script type='text/javascript'>
+                            $(document).ready(function(){
+                       
+                              $.ajax({
+                                url: 'https://timeconcept.com/pwa/viewedcategory',
+                                type: 'get',
+                                dataType: 'json',
+                                success: function(response14){
+                       
+                                  var len = 0;
+                                  $('#ViewedCategoryTable tbody').empty(); // Empty <tbody>
+                                  if(response14 != null){
+                                     len = response14.length;
+                                  }
+                        
+                        var totalsum = 0;
+                       
+                                  if(len > 0){
+                                     for(var i=0; i<len; i++){
+                                        var id = response14[i].id;
+                                        var category_name = response14[i].title;
+                                        var total = response14[i].viewed;
+                       
+                                        var tr_str = "<tr>" +
+                                          "<td>" + (i+1) + "</td>" +
+                                          "<td style='text-transform:capitalize; '>" + category_name + "</td>" +
+                                          "<td>" + total + "</td>" +
+                                        "</tr>";
+                          
+                          totalsum += Number(total);
+                       
+                                        $("#ViewedCategoryTable tbody").append(tr_str);
+                                     }
+                         
+                         var tr_str = "<tr>" +
+                                          "<td>&nbsp;</td>" +
+                                          "<td><strong>Total</strong></td>" +
+                                          "<td><strong>" + totalsum + "</strong></td>" +
+                                        "</tr>";
+                          
+                          $("#ViewedCategoryTable tbody").append(tr_str);
+                                  }else{
+                                     var tr_str = "<tr>" +
+                                         "<td align='center' colspan='3'>No record found.</td>" +
+                                     "</tr>";
+                       
+                                     $("#ViewedCategoryTable tbody").append(tr_str);
+                                  }
+                       
+                                }
+                              });				   
+                      
+                      $('#but_search').click(function(){
+                         var searchdate15 = $('#daterange-btn').val().trim();
+                           
+                           //if(searchdate != ''){
+                           fetchRecords15(searchdate15);
+                           //}
+                   
+                        });
+                
+                       
+                            });
+
+
+                            function fetchRecords15(id){
+                              $.ajax({
+                                url: 'https://timeconcept.com/pwa/viewedcategory/'+id,
+                                type: 'get',
+                                dataType: 'json',
+                                success: function(response3){
+                       
+                                  var len = 0;
+                                  $('#ViewedCategoryTable tbody').empty(); // Empty <tbody>
+                                  if(response3 != null){
+                                     len = response3.length;
+                                  }
+                        
+                        var totalsum = 0;
+                       
+                                  if(len > 0){
+                                     for(var i=0; i<len; i++){
+                                        var id = response3[i].id;
+                                        var category_name = response3[i].product_name;
+                                        var total = response3[i].viewed;
+                         
+                                        var tr_str = "<tr>" +
+                                          "<td>" + (i+1) + "</td>" +
+                                          "<td style='text-transform:capitalize; '>" + category_name + "</td>" +
+                                          "<td>" + total + "</td>" +
+                                        "</tr>";
+                          
+                          totalsum += Number(total);
+                       
+                                        $("#ViewedCategoryTable tbody").append(tr_str);
+                                     }
+                         
+                         var tr_str = "<tr>" +
+                                          "<td>&nbsp;</td>" +
+                                          "<td><strong>Total</strong></td>" +
+                                          "<td><strong>" + totalsum + "</strong></td>" +
+                                        "</tr>";
+                          
+                          $("#ViewedCategoryTable tbody").append(tr_str);
+                          
+                                  }else{
+                                     var tr_str = "<tr>" +
+                                         "<td align='center' colspan='3'>No record found.</td>" +
+                                     "</tr>";
+                       
+                                     $("#ViewedCategoryTable tbody").append(tr_str);
+                                  }
+                       
+                                }
+                              });
+                            }
+                            </script>
+                        </tbody>
                       </table>
                     </div>
                     
@@ -1467,6 +1938,174 @@
                   
                 </div>
               </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">Popular Search</h3>
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="card-body table-responsive p-0">
+                  
+                  <table class="table table-striped table-valign-middle" id="PopularSearchTable">
+                    <thead>
+                    <tr>
+                      <th>No.</th>
+                      <th>Keyword</th>
+                      <th>Count</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <script type='text/javascript'>
+                 $(document).ready(function(){
+            
+                   $.ajax({
+                     url: 'https://timeconcept.com/pwa/popularsearch/1',
+                     type: 'get',
+                     dataType: 'json',
+                     success: function(response9){
+            
+                       var len = 0;
+                       $('#PopularSearchTable tbody').empty(); // Empty <tbody>
+                       if(response9 != null){
+                          len = response9.length;
+                       }
+					   
+					   var totalsum = 0;
+            
+                       if(len > 0){
+                          for(var i=0; i<len; i++){
+                             var id = response9[i].id;
+                             var keyword = response9[i].keyword;
+                             var total = response9[i].count;
+            
+                             var tr_str = "<tr>" +
+                               "<td>" + (i+1) + "</td>" +
+                               "<td style='text-transform:capitalize; '>" + keyword + "</td>" +
+                               "<td>" + total + "</td>" +
+                             "</tr>";
+							 
+							 totalsum += Number(total);
+            
+                             $("#PopularSearchTable tbody").append(tr_str);
+                          }
+						  
+						  var tr_str = "<tr>" +
+                               "<td>&nbsp;</td>" +
+                               "<td><strong>Total</strong></td>" +
+                               "<td><strong>" + totalsum + "</strong></td>" +
+                             "</tr>";
+							 
+						   $("#PopularSearchTable tbody").append(tr_str);
+                       }else{
+                          var tr_str = "<tr>" +
+                              "<td align='center' colspan='3'>No record found.</td>" +
+                          "</tr>";
+            
+                          $("#PopularSearchTable tbody").append(tr_str);
+                       }
+            
+                     }
+                   });				   
+				   
+				   $('#but_search').click(function(){
+						  var searchdate9 = $('#daterange-btn').val().trim();
+								
+							  //if(searchdate != ''){
+								fetchRecords9(searchdate9);
+							  //}
+				
+					   });
+	   
+            
+                 });
+            
+                 function fetchRecords9(id){
+                   $.ajax({
+                     url: 'https://timeconcept.com/pwa/popularsearch/'+id,
+                     type: 'get',
+                     dataType: 'json',
+                     success: function(response9){
+            
+                       var len = 0;
+                       $('#PopularSearchTable tbody').empty(); // Empty <tbody>
+                       if(response9 != null){
+                          len = response9.length;
+                       }
+					   
+					   var totalsum = 0;
+            
+                       if(len > 0){
+                          for(var i=0; i<len; i++){
+                             var id = response9[i].id;
+                             var keyword = response9[i].keyword;
+                             var total = response9[i].count;
+							
+                             var tr_str = "<tr>" +
+                               "<td>" + (i+1) + "</td>" +
+                               "<td style='text-transform:capitalize; '>" + keyword + "</td>" +
+                               "<td>" + total + "</td>" +
+                             "</tr>";
+							 
+							 totalsum += Number(total);
+            
+                             $("#PopularSearchTable tbody").append(tr_str);
+                          }
+						  
+						  var tr_str = "<tr>" +
+                               "<td>&nbsp;</td>" +
+                               "<td><strong>Total</strong></td>" +
+                               "<td><strong>" + totalsum + "</strong></td>" +
+                             "</tr>";
+							 
+						   $("#PopularSearchTable tbody").append(tr_str);
+						   
+                       }else{
+                          var tr_str = "<tr>" +
+                              "<td align='center' colspan='3'>No record found.</td>" +
+                          "</tr>";
+            
+                          $("#PopularSearchTable tbody").append(tr_str);
+                       }
+            
+                     }
+                   });
+                 }
+                 </script>
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
               
               
         
@@ -1531,7 +2170,7 @@
               <!-- /.card -->
   
               <!-- solid sales graph -->
-              <div class="card bg-gradient-info">
+              <div class="card bg-gradient-info" style="display:none; ">
                 <div class="card-header border-0">
                   <h3 class="card-title">
                     <i class="fas fa-th mr-1"></i>
@@ -1605,8 +2244,14 @@
               <!-- /.card -->
               
               
+
+
+
+
+
+
               <div class="card">
-                <div class="card-header border-0">
+                <div class="card-header">
                   <h3 class="card-title">Latest Orders</h3>
                   <div class="card-tools">
                     <!--<a href="#" class="btn btn-tool btn-sm">
@@ -1624,72 +2269,371 @@
                   </div>
                 </div>
                 <div class="card-body table-responsive p-0">
-                  <table class="table table-striped table-valign-middle">
+                  <table class="table table-striped table-valign-middle" id="LatestOrderTable">
                     <thead>
                     <tr>
+                      <th>No.</th>
                       <th>Member</th>
                       <th>Status</th>
+                      <!--<th>Total</th>-->
                       <th>Date</th>
                     </tr>
                     </thead>
                     <tbody>
-                                      <tr>
-                      <td>Member 1</td>
-                      <td><span class="badge badge-info" style="text-transform:capitalize; ">shipped</span></td>
-                      <td>05/06/2021 12:38 PM</td>
-                    </tr>
-                                      <tr>
-                      <td>Member 2</td>
-                      <td> <span class="badge badge-warning" style="text-transform:capitalize; ">deny</span> </td>
-                      <td>04/06/2021 05:51 AM</td>
-                    </tr>
-                                      <tr>
-                      <td>Member 3</td>
-                      <td><span class="badge badge-info" style="text-transform:capitalize; ">shipped</span></td>
-                      <td>03/06/2021 09:49 PM</td>
-                    </tr>
-                                      <tr>
-                      <td>Member 4</td>
-                      <td><span class="badge badge-danger" style="text-transform:capitalize; ">canceled</span></td>
-                      <td>02/06/2021 05:20 PM</td>
-                    </tr>
-                                      <tr>
-                      <td>Member 5</td>
-                      <td><span class="badge badge-danger" style="text-transform:capitalize; ">canceled</span></td>
-                      <td>02/06/2021 02:48 PM</td>
-                    </tr>
-                                      <tr>
-                      <td>Member 6</td>
-                      <td><span class="badge badge-info" style="text-transform:capitalize; ">shipped</span></td>
-                      <td>02/06/2021 12:47 PM</td>
-                    </tr>
-                                      <tr>
-                      <td>Member 7</td>
-                      <td><span class="badge badge-info" style="text-transform:capitalize; ">shipped</span></td>
-                      <td>02/06/2021 12:35 PM</td>
-                    </tr>
-                                      <tr>
-                      <td>Member 8</td>
-                      <td><span class="badge badge-info" style="text-transform:capitalize; ">shipped</span></td>
-                      <td>31/05/2021 02:34 PM</td>
-                    </tr>
-                                      <tr>
-                      <td>Member 9</td>
-                      <td><span class="badge badge-danger" style="text-transform:capitalize; ">canceled</span></td>
-                      <td>30/05/2021 11:25 AM</td>
-                    </tr>
-                                      <tr>
-                      <td>Member 10</td>
-                      <td><span class="badge badge-danger" style="text-transform:capitalize; ">canceled</span></td>
-                      <td>29/05/2021 09:53 PM</td>
-                    </tr>
+                      <script type='text/javascript'>
+                        $(document).ready(function(){
+                   
+                          $.ajax({
+                            url: 'https://timeconcept.com/pwa/latestorder/1',
+                            type: 'get',
+                            dataType: 'json',
+                            success: function(response2){
+                   
+                              var len = 0;
+                              $('#LatestOrderTable tbody').empty(); // Empty <tbody>
+                              if(response2 != null){
+                                 len = response2.length;
+                              }
+                    
+                    var totalsum = 0;
+                   
+                              if(len > 0){
+                                 for(var i=0; i<len; i++){
+                                    var id = response2[i].id;
+                                    var member_name = response2[i].first_name + " " + response2[i].last_name;
+                                    var transaction_status = response2[i].transaction_status;
+                                    var total = response2[i].total;
+                      var created_at = response2[i].created_at;
+                      
+                      var	number_string = total.toString(),
+                         sisa 	= number_string.length % 3,
+                         rupiah 	= number_string.substr(0, sisa),
+                         ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+                     
+                     if (ribuan) {
+                       separator = sisa ? '.' : '';
+                       rupiah += separator + ribuan.join('.');
+                     }
+                     
+                     if (transaction_status == '') {
+                       transactionstatus = '<span class="badge badge-danger" style="text-transform:capitalize; ">Canceled</span>';
+                     } else {
+                       if ((transaction_status == 'settlement')||(transaction_status == 'capture')) {
+                           transactionstatus = '<span class="badge badge-success" style="text-transform:capitalize; ">Paid</span>';
+                       } else if (transaction_status == 'shipped') {
+                           transactionstatus = '<span class="badge badge-primary" style="text-transform:capitalize; ">' + transaction_status + '</span>';
+                       } else if (transaction_status == 'complete') {
+                           transactionstatus = '<span class="badge badge-success" style="text-transform:capitalize; ">' + transaction_status + '</span>';
+                       } else if (transaction_status == 'canceled') {
+                           transactionstatus = '<span class="badge badge-danger" style="text-transform:capitalize; ">' + transaction_status + '</span>';
+                       } else {
+                           transactionstatus = '<span class="badge badge-warning" style="text-transform:capitalize; ">' + transaction_status + '</span>';
+                       }
+                     }
+                   
+                                    var tr_str = "<tr>" +
+                                      "<td>" + (i+1) + "</td>" +
+                                      "<td>" + member_name + "</td>" +
+                        "<td>" + transactionstatus + "</td>" +
+                                      //"<td>Rp. " + rupiah + "</td>" +
+                                      "<td>" + created_at + "</td>" +
+                                    "</tr>";
+                      
+                      totalsum += Number(total);
+                   
+                                    $("#LatestOrderTable tbody").append(tr_str);
+                                 }
+                     
+                     var	number_string = totalsum.toString(),
+                         sisa 	= number_string.length % 3,
+                         rupiah 	= number_string.substr(0, sisa),
+                         ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+                     
+                     if (ribuan) {
+                       separator = sisa ? '.' : '';
+                       rupiah += separator + ribuan.join('.');
+                     }
+                     
+                     /*var tr_str = "<tr>" +
+                                      "<td>&nbsp;</td>" +
+                        "<td>&nbsp;</td>" +
+                                      "<td><strong>Total</strong></td>" +
+                                      "<td><strong>Rp. " + rupiah + "</strong></td>" +
+                        "<td>&nbsp;</td>" +
+                                    "</tr>";*/
+                      
+                      $("#LatestOrderTable tbody").append(tr_str);
+                              }else{
+                                 var tr_str = "<tr>" +
+                                     "<td align='center' colspan='5'>No record found.</td>" +
+                                 "</tr>";
+                   
+                                 $("#LatestOrderTable tbody").append(tr_str);
+                              }
+                   
+                            }
+                          });
+                  
+                  
+                      $('#but_search').click(function(){
+                     var searchdate2 = $('#daterange-btn').val().trim();
+       
+                     $("#but_fetchallorder").show();
+                     $("#but_fetchcanceled").show();
+                     $("#but_fetchexpire").show();
+                     $("#but_fetchpaid").show();
+                     $("#but_fetchcomplete").show();
+                     $("#but_fetchshipped").show();
+                       
+                       //if(searchdate != ''){
+                       var id2 = 0; 
+                       fetchRecords2(searchdate2);
+                       sessionStorage.setItem("searchdate22", searchdate2);
+                       //}
+               
+                    });
+                    
+                    
+                    
+                    $('#but_search1').click(function(){
+                     var searchdate21 = '1';
+       
+                     $("#but_fetchallorder").show();
+                     $("#but_fetchcanceled").show();
+                     $("#but_fetchexpire").show();
+                     $("#but_fetchpaid").show();
+                     $("#but_fetchcomplete").show();
+                     $("#but_fetchshipped").show();
+                       
+                       //if(searchdate != ''){
+                       var id2 = 0; 
+                       fetchRecords2(searchdate21);
+                       sessionStorage.setItem("searchdate22", searchdate21);
+                       //}
+               
+                    });
+                    
+                    $('#but_search2').click(function(){
+                     var searchdate22 = '<?php echo $date7; ?>-<?php echo $nowdate; ?>';
+       
+                     $("#but_fetchallorder").show();
+                     $("#but_fetchcanceled").show();
+                     $("#but_fetchexpire").show();
+                     $("#but_fetchpaid").show();
+                     $("#but_fetchcomplete").show();
+                     $("#but_fetchshipped").show();
+                       
+                       //if(searchdate != ''){
+                       var id2 = 0; 
+                       fetchRecords2(searchdate22);
+                       sessionStorage.setItem("searchdate22", searchdate22);
+                       //}
+               
+                    });
+                    
+                    $('#but_search3').click(function(){
+                     var searchdate23 = '<?php echo $date30; ?>-<?php echo $nowdate; ?>';
+       
+                     $("#but_fetchallorder").show();
+                     $("#but_fetchcanceled").show();
+                     $("#but_fetchexpire").show();
+                     $("#but_fetchpaid").show();
+                     $("#but_fetchcomplete").show();
+                     $("#but_fetchshipped").show();
+                       
+                       //if(searchdate != ''){
+                       var id2 = 0; 
+                       fetchRecords2(searchdate23);
+                       sessionStorage.setItem("searchdate22", searchdate23);
+                       //}
+               
+                    });
+                    
+                    $('#but_search6').click(function(){
+                     var searchdate26 = '<?php echo $date180; ?>-<?php echo $nowdate; ?>';
+       
+                     $("#but_fetchallorder").show();
+                     $("#but_fetchcanceled").show();
+                     $("#but_fetchexpire").show();
+                     $("#but_fetchpaid").show();
+                     $("#but_fetchcomplete").show();
+                     $("#but_fetchshipped").show();
+                       
+                       //if(searchdate != ''){
+                       var id2 = 0; 
+                       fetchRecords2(searchdate26);
+                       sessionStorage.setItem("searchdate22", searchdate26);
+                       //}
+               
+                    });
+                    
+                    $('#but_search7').click(function(){
+                     var searchdate27 = '<?php echo $date360; ?>-<?php echo $nowdate; ?>';
+       
+                     $("#but_fetchallorder").show();
+                     $("#but_fetchcanceled").show();
+                     $("#but_fetchexpire").show();
+                     $("#but_fetchpaid").show();
+                     $("#but_fetchcomplete").show();
+                     $("#but_fetchshipped").show();
+                       
+                       //if(searchdate != ''){
+                       var id2 = 0; 
+                       fetchRecords2(searchdate27);
+                       sessionStorage.setItem("searchdate22", searchdate27);
+                       //}
+               
+                    });
+                    
+                    $('#but_search8').click(function(){
+                     var searchdate28 = '<?php echo $date1800; ?>-<?php echo $nowdate; ?>';
+       
+                     $("#but_fetchallorder").show();
+                     $("#but_fetchcanceled").show();
+                     $("#but_fetchexpire").show();
+                     $("#but_fetchpaid").show();
+                     $("#but_fetchcomplete").show();
+                     $("#but_fetchshipped").show();
+                       
+                       //if(searchdate != ''){
+                       var id2 = 0; 
+                       fetchRecords2(searchdate28);
+                       sessionStorage.setItem("searchdate22", searchdate28);
+                       //}
+               
+                    });
+                    
+            
+                        });
+                
+                
+                
+                $('#but_fetchallorder').click(function(){ 
+                   var searchdate22 = sessionStorage.getItem("searchdate22");
+                  fetchRecords2(searchdate22,1);  
+                });
+                $('#but_fetchcanceled').click(function(){ 
+                   var searchdate22 = sessionStorage.getItem("searchdate22");
+                  fetchRecords2(searchdate22,2);  
+                });
+                        $('#but_fetchexpire').click(function(){ 
+                  var searchdate22 = sessionStorage.getItem("searchdate22");
+                  fetchRecords2(searchdate22,3);
+                });
+                $('#but_fetchpaid').click(function(){ 
+                  var searchdate22 = sessionStorage.getItem("searchdate22");
+                  fetchRecords2(searchdate22,4);
+                });
+                $('#but_fetchcomplete').click(function(){ 
+                  var searchdate22 = sessionStorage.getItem("searchdate22");
+                  fetchRecords2(searchdate22,5);
+                });
+                $('#but_fetchshipped').click(function(){ 
+                  var searchdate22 = sessionStorage.getItem("searchdate22");
+                  fetchRecords2(searchdate22,6);
+                });
+                   
+                        function fetchRecords2(id,id2){
+                          $.ajax({
+                            url: 'https://timeconcept.com/pwa/latestorder/'+id+'?id2='+id2,
+                            type: 'get',
+                            dataType: 'json',
+                            success: function(response2){
+                   
+                              var len = 0;
+                              $('#LatestOrderTable tbody').empty(); // Empty <tbody>
+                              if(response2 != null){
+                                 len = response2.length;
+                              }
+                    
+                    var totalsum = 0;
+                   
+                              if(len > 0){
+                                 for(var i=0; i<len; i++){
+                                    var id = response2[i].id;
+                                    var member_name = response2[i].first_name + " " + response2[i].last_name;
+                                    var transaction_status = response2[i].transaction_status;
+                                    var total = response2[i].total;
+                      var created_at = response2[i].created_at;
+                      
+                      var	number_string = total.toString(),
+                         sisa 	= number_string.length % 3,
+                         rupiah 	= number_string.substr(0, sisa),
+                         ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+                     
+                     if (ribuan) {
+                       separator = sisa ? '.' : '';
+                       rupiah += separator + ribuan.join('.');
+                     }
+                     
+                     if (transaction_status == '') {
+                       transactionstatus = '<span class="badge badge-danger" style="text-transform:capitalize; ">Canceled</span>';
+                     } else {
+                       if ((transaction_status == 'settlement')||(transaction_status == 'capture')) {
+                           transactionstatus = '<span class="badge badge-success" style="text-transform:capitalize; ">Paid</span>';
+                       } else if (transaction_status == 'shipped') {
+                           transactionstatus = '<span class="badge badge-primary" style="text-transform:capitalize; ">' + transaction_status + '</span>';
+                       } else if (transaction_status == 'complete') {
+                           transactionstatus = '<span class="badge badge-success" style="text-transform:capitalize; ">' + transaction_status + '</span>';
+                       } else if (transaction_status == 'canceled') {
+                           transactionstatus = '<span class="badge badge-danger" style="text-transform:capitalize; ">' + transaction_status + '</span>';
+                       } else {
+                           transactionstatus = '<span class="badge badge-warning" style="text-transform:capitalize; ">' + transaction_status + '</span>';
+                       }
+                     }
+                   
+                                    var tr_str = "<tr>" +
+                                      "<td>" + (i+1) + "</td>" +
+                                      "<td>" + member_name + "</td>" +
+                        "<td>" + transactionstatus + "</td>" +
+                                      //"<td>Rp. " + rupiah + "</td>" +
+                                      "<td>" + created_at + "</td>" +
+                                    "</tr>";
+                      
+                      totalsum += Number(total);
+                   
+                                    $("#LatestOrderTable tbody").append(tr_str);
+                                 }
+                     
+                     var	number_string = totalsum.toString(),
+                         sisa 	= number_string.length % 3,
+                         rupiah 	= number_string.substr(0, sisa),
+                         ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+                     
+                     if (ribuan) {
+                       separator = sisa ? '.' : '';
+                       rupiah += separator + ribuan.join('.');
+                     }
+                     
+                     /*var tr_str = "<tr>" +
+                                      "<td>&nbsp;</td>" +
+                        "<td>&nbsp;</td>" +
+                                      "<td><strong>Total</strong></td>" +
+                                      "<td><strong>Rp. " + rupiah + "</strong></td>" +
+                        "<td>&nbsp;</td>" +
+                                    "</tr>";*/
+                      
+                      $("#LatestOrderTable tbody").append(tr_str);
+                      
+                              }else{
+                                 var tr_str = "<tr>" +
+                                     "<td align='center' colspan='5'>No record found.</td>" +
+                                 "</tr>";
+                   
+                                 $("#LatestOrderTable tbody").append(tr_str);
+                              }
+                   
+                            }
+                          });
+                        }
+                        </script>
                                       
                     </tbody>
                   </table>
                 </div>
-                <div class="card-footer text-center">
+                <!--<div class="card-footer text-center">
                   <a href="javascript:">View All Orders</a>
-                </div>
+                </div>-->
                 <!-- /.card-footer -->
               </div>
               
@@ -1698,128 +2642,57 @@
               
               
   
-              <!-- Calendar -->
-              <div class="card bg-gradient-success" style="display:none">
+
+
+
+
+
+
+
+              <div class="card">
                 <div class="card-header border-0">
-  
-                  <h3 class="card-title">
-                    <i class="far fa-calendar-alt"></i>
-                    Calendar
-                  </h3>
-                  <!-- tools card -->
+                  <h3 class="card-title">Top Order</h3>
                   <div class="card-tools">
-                    <!-- button with a dropdown -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
-                        <i class="fas fa-bars"></i>
-                      </button>
-                      <div class="dropdown-menu" role="menu">
-                        <a href="#" class="dropdown-item">Add new event</a>
-                        <a href="#" class="dropdown-item">Clear events</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">View calendar</a>
-                      </div>
-                    </div>
-                    <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
+                    <ul class="nav nav-pills ml-auto">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#products2" data-toggle="tab">Products</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#brands" data-toggle="tab">Brands</a>
+                      </li>
+                      <!--<li class="nav-item">
+                        <a class="nav-link" href="#members" data-toggle="tab">Members</a>
+                      </li>-->
+                      <li class="nav-item">
+                        <a class="nav-link" href="#cities" data-toggle="tab">Cities</a>
+                      </li>
+                    </ul>
+                    <!--<button type="button" class="btn btn-tool" data-card-widget="collapse">
                       <i class="fas fa-minus"></i>
                     </button>
-                    <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
                       <i class="fas fa-times"></i>
-                    </button>
-                  </div>
-                  <!-- /. tools -->
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body pt-0">
-                  <!--The calendar -->
-                  <div id="calendar" style="width: 100%"></div>
-                </div>
-                <!-- /.card-body -->
-              </div>
-              <!-- /.card -->
-              
-              
-              <div class="card" style="display:none">
-                <div class="card-header border-0">
-                  <div class="d-flex justify-content-between">
-                    <h3 class="card-title">Sales</h3>
-                    <a href="javascript:void(0);">View Report</a>
+                    </button>-->
                   </div>
                 </div>
-                <div class="card-body">
-                  <div class="d-flex">
-                    <p class="d-flex flex-column">
-                      <span class="text-bold text-lg">$18,230.00</span>
-                      <span>Sales Over Time</span>
-                    </p>
-                    <p class="ml-auto d-flex flex-column text-right">
-                      <span class="text-success">
-                        <i class="fas fa-arrow-up"></i> 33.1%
-                      </span>
-                      <span class="text-muted">Since last month</span>
-                    </p>
-                  </div>
-                  <!-- /.d-flex -->
-  
-                  <div class="position-relative mb-4">
-                    <canvas id="sales-chart" height="200"></canvas>
-                  </div>
-  
-                  <div class="d-flex flex-row justify-content-end">
-                    <span class="mr-2">
-                      <i class="fas fa-square text-primary"></i> This year
-                    </span>
-  
-                    <span>
-                      <i class="fas fa-square text-gray"></i> Last year
-                    </span>
-                  </div>
-                </div>
-              </div>
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-              <div class="box box-primary">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Products Order</h3>
-    
-                  <div class="box-tools pull-right">
-                    
-                    
-                    
-                  </div>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                  <div class="table-responsive">
-                    <table class="table no-margin" id="BestSellerTable">
-                      <thead>
-                      <tr>
-                        <th>No.</th>
-                        <th>Product Name</th>
-                        <!--<th>Price</th>-->
-                        <th>Sales</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      
-                     <script type='text/javascript'>
+                <div class="card-body table-responsive p-0">
+                <div class="tab-content p-0">
+                    <!-- Morris chart - Sales -->
+                    <div class="tab-pane active" id="products2">
+                      <table class="table table-striped table-valign-middle" id="BestSellerTable">
+                        <thead>
+                        <tr>
+                          <th>No.</th>
+                          <th>Product</th>
+                          <th>Orders</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <script type='text/javascript'>
                      $(document).ready(function(){
                 
                        $.ajax({
                          url: 'https://timeconcept.com/pwa/bestseller/1',
-                         headers: {  'Access-Control-Allow-Origin': 'https://miftahululum81.github.io/' },
                          type: 'get',
                          dataType: 'json',
                          success: function(response){
@@ -1882,21 +2755,15 @@
                        });
               
           
-                       // Fetch all records
-                       /*$('#but_fetchall').click(function(){ fetchRecords(0); });
-                       $('#but_fetchtoday').click(function(){ fetchRecords(1); });
-                       $('#but_fetchweek').click(function(){ fetchRecords(2); });
-                       $('#but_fetchmonth').click(function(){ fetchRecords(3); });*/
                
-               
-               /*$('#but_search').click(function(){
+               $('#but_search').click(function(){
                   var searchdate = $('#daterange-btn').val().trim();
                     
                     //if(searchdate != ''){
                     fetchRecords(searchdate);
                     //}
             
-                 });*/
+                 });
          
                 
                      });
@@ -1936,7 +2803,6 @@
                                  var tr_str = "<tr>" +
                                    "<td>" + (i+1) + "</td>" +
                                    "<td>" + product_name + "</td>" +
-                                   //"<td>Rp. " + rupiah + "</td>" +
                                    "<td>" + total + "</td>" +
                                  "</tr>";
                    
@@ -1948,7 +2814,6 @@
                    var tr_str = "<tr>" +
                                    "<td>&nbsp;</td>" +
                                    "<td><strong>Total</strong></td>" +
-                     //"<td>&nbsp;</td>" +
                                    "<td><strong>" + totalsum + "</strong></td>" +
                                  "</tr>";
                    
@@ -1966,16 +2831,412 @@
                        });
                      }
                      </script>
-                      </tbody>
-                    </table>
+                        
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="tab-pane" id="brands">
+                      <table class="table table-striped table-valign-middle" id="BestBrandTable">
+                        <thead>
+                        <tr>
+                          <th>No.</th>
+                          <th>Brand</th>
+                          <th>Orders</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <script type='text/javascript'>
+                            $(document).ready(function(){
+                       
+                              $.ajax({
+                                url: 'https://timeconcept.com/pwa/bestbrand/1',
+                                type: 'get',
+                                dataType: 'json',
+                                success: function(response3){
+                       
+                                  var len = 0;
+                                  $('#BestBrandTable tbody').empty(); // Empty <tbody>
+                                  if(response3 != null){
+                                     len = response3.length;
+                                  }
+                        
+                        var totalsum = 0;
+                       
+                                  if(len > 0){
+                                     for(var i=0; i<len; i++){
+                                        var id = response3[i].id;
+                                        var brand_name = response3[i].brand_name;
+                                        var total = response3[i].total;
+                       
+                                        var tr_str = "<tr>" +
+                                          "<td>" + (i+1) + "</td>" +
+                                          "<td style='text-transform:capitalize; '>" + brand_name + "</td>" +
+                                          "<td>" + total + "</td>" +
+                                        "</tr>";
+                          
+                          totalsum += Number(total);
+                       
+                                        $("#BestBrandTable tbody").append(tr_str);
+                                     }
+                         
+                         var tr_str = "<tr>" +
+                                          "<td>&nbsp;</td>" +
+                                          "<td><strong>Total</strong></td>" +
+                                          "<td><strong>" + totalsum + "</strong></td>" +
+                                        "</tr>";
+                          
+                          $("#BestBrandTable tbody").append(tr_str);
+                                  }else{
+                                     var tr_str = "<tr>" +
+                                         "<td align='center' colspan='3'>No record found.</td>" +
+                                     "</tr>";
+                       
+                                     $("#BestBrandTable tbody").append(tr_str);
+                                  }
+                       
+                                }
+                              });				   
+                      
+                      $('#but_search').click(function(){
+                         var searchdate3 = $('#daterange-btn').val().trim();
+                           
+                           //if(searchdate != ''){
+                           fetchRecords3(searchdate3);
+                           //}
+                   
+                        });
+                
+                       
+                            });
+                       
+                            function fetchRecords3(id){
+                              $.ajax({
+                                url: 'https://timeconcept.com/pwa/bestbrand/'+id,
+                                type: 'get',
+                                dataType: 'json',
+                                success: function(response3){
+                       
+                                  var len = 0;
+                                  $('#BestBrandTable tbody').empty(); // Empty <tbody>
+                                  if(response3 != null){
+                                     len = response3.length;
+                                  }
+                        
+                        var totalsum = 0;
+                       
+                                  if(len > 0){
+                                     for(var i=0; i<len; i++){
+                                        var id = response3[i].id;
+                                        var brand_name = response3[i].brand_name;
+                                        var total = response3[i].total;
+                         
+                                        var tr_str = "<tr>" +
+                                          "<td>" + (i+1) + "</td>" +
+                                          "<td style='text-transform:capitalize; '>" + brand_name + "</td>" +
+                                          "<td>" + total + "</td>" +
+                                        "</tr>";
+                          
+                          totalsum += Number(total);
+                       
+                                        $("#BestBrandTable tbody").append(tr_str);
+                                     }
+                         
+                         var tr_str = "<tr>" +
+                                          "<td>&nbsp;</td>" +
+                                          "<td><strong>Total</strong></td>" +
+                                          "<td><strong>" + totalsum + "</strong></td>" +
+                                        "</tr>";
+                          
+                          $("#BestBrandTable tbody").append(tr_str);
+                          
+                                  }else{
+                                     var tr_str = "<tr>" +
+                                         "<td align='center' colspan='3'>No record found.</td>" +
+                                     "</tr>";
+                       
+                                     $("#BestBrandTable tbody").append(tr_str);
+                                  }
+                       
+                                }
+                              });
+                            }
+                            </script>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="tab-pane" id="members">
+                      <table class="table table-striped table-valign-middle" id="TopBuyerTable">
+                        <thead>
+                        <tr>
+                          <th>No.</th>
+                          <th>Member</th>
+                          <th>Orders</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <script type='text/javascript'>
+                            $(document).ready(function(){
+                       
+                              $.ajax({
+                                url: 'https://timeconcept.com/pwa/topbuyer/1',
+                                type: 'get',
+                                dataType: 'json',
+                                success: function(response5){
+                       
+                                  var len = 0;
+                                  $('#TopBuyerTable tbody').empty(); // Empty <tbody>
+                                  if(response5 != null){
+                                     len = response5.length;
+                                  }
+                        
+                        var totalsum = 0;
+                       
+                                  if(len > 0){
+                                     for(var i=0; i<len; i++){
+                                        var id = response5[i].id;
+                                        var member_name = response5[i].member_name;
+                                        var total = response5[i].total;
+                       
+                                        var tr_str = "<tr>" +
+                                          "<td>" + (i+1) + "</td>" +
+                                          "<td>" + member_name + "</td>" +
+                                          "<td>" + total + "</td>" +
+                                        "</tr>";
+                          
+                          totalsum += Number(total);
+                       
+                                        $("#TopBuyerTable tbody").append(tr_str);
+                                     }
+                         
+                         var tr_str = "<tr>" +
+                                          "<td>&nbsp;</td>" +
+                                          "<td><strong>Total</strong></td>" +
+                                          "<td><strong>" + totalsum + "</strong></td>" +
+                                        "</tr>";
+                          
+                          $("#TopBuyerTable tbody").append(tr_str);
+                          
+                                  }else{
+                                     var tr_str = "<tr>" +
+                                         "<td align='center' colspan='3'>No record found.</td>" +
+                                     "</tr>";
+                       
+                                     $("#TopBuyerTable tbody").append(tr_str);
+                                  }
+                       
+                                }
+                              });				   
+                      
+                      $('#but_search').click(function(){
+                         var searchdate5 = $('#daterange-btn').val().trim();
+                           
+                           //if(searchdate != ''){
+                           fetchRecords5(searchdate5);
+                           //}
+                   
+                        });
+                
+                       
+                            });
+                       
+                            function fetchRecords5(id){
+                              $.ajax({
+                                url: 'https://timeconcept.com/pwa/topbuyer/'+id,
+                                type: 'get',
+           
+                                dataType: 'json',
+                                success: function(response5){
+                       
+                                  var len = 0;
+                                  $('#TopBuyerTable tbody').empty(); // Empty <tbody>
+                                  if(response5 != null){
+                                     len = response5.length;
+                                  }
+                        
+                        var totalsum =  0;
+                       
+                                  if(len > 0){
+                                     for(var i=0; i<len; i++){
+                                        var id = response5[i].id;
+                                        var member_name = response5[i].member_name;
+                                        var total = response5[i].total;
+                         
+                                        var tr_str = "<tr>" +
+                                          "<td>" + (i+1) + "</td>" +
+                                          "<td>" + member_name + "</td>" +
+                                          "<td>" + total + "</td>" +
+                                        "</tr>";
+                          
+                          totalsum += Number(total);
+                       
+                                        $("#TopBuyerTable tbody").append(tr_str);
+                                     }
+                         
+                          var tr_str = "<tr>" +
+                                          "<td>&nbsp;</td>" +
+                                          "<td><strong>Total</strong></td>" +
+                                          "<td><strong>" + totalsum + "</strong></td>" +
+                                        "</tr>";
+                          
+                          $("#TopBuyerTable tbody").append(tr_str);
+                         
+                                  }else{
+                                     var tr_str = "<tr>" +
+                                         "<td align='center' colspan='3'>No record found.</td>" +
+                                     "</tr>";
+                       
+                                     $("#TopBuyerTable tbody").append(tr_str);
+                                  }
+                       
+                                }
+                              });
+                            }
+                            </script>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="tab-pane" id="cities">
+                      <table class="table table-striped table-valign-middle" id="TopCityTable">
+                        <thead>
+                        <tr>
+                          <th>No.</th>
+                          <th>City</th>
+                          <th>Orders</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <script type='text/javascript'>
+                            $(document).ready(function(){
+                       
+                              $.ajax({
+                                url: 'https://timeconcept.com/pwa/topcity/1',
+                                type: 'get',
+                                dataType: 'json',
+                                success: function(response4){
+                       
+                                  var len = 0;
+                                  $('#TopCityTable tbody').empty(); // Empty <tbody>
+                                  if(response4 != null){
+                                     len = response4.length;
+                                  }
+                        
+                        var totalsum = 0;
+                       
+                                  if(len > 0){
+                                     for(var i=0; i<len; i++){
+                                        var id = response4[i].id;
+                                        var city_name = response4[i].city_name;
+                                        var total = response4[i].total;
+                       
+                                        var tr_str = "<tr>" +
+                                          "<td>" + (i+1) + "</td>" +
+                                          "<td>" + city_name + "</td>" +
+                                          "<td>" + total + "</td>" +
+                                        "</tr>";
+                          
+                          totalsum += Number(total);
+                       
+                                        $("#TopCityTable tbody").append(tr_str);
+                                     }
+                         
+                         var tr_str = "<tr>" +
+                                          "<td>&nbsp;</td>" +
+                                          "<td><strong>Total</strong></td>" +
+                                          "<td><strong>" + totalsum + "</strong></td>" +
+                                        "</tr>";
+
+                          
+                          $("#TopCityTable tbody").append(tr_str);
+                          
+                                  }else{
+                                     var tr_str = "<tr>" +
+                                         "<td align='center' colspan='3'>No record found.</td>" +
+                                     "</tr>";
+                       
+                                     $("#TopCityTable tbody").append(tr_str);
+                                  }
+                       
+                                }
+                              });				   
+                      
+                      $('#but_search').click(function(){
+                         var searchdate4 = $('#daterange-btn').val().trim();
+                           
+                           //if(searchdate != ''){
+                           fetchRecords4(searchdate4);
+                           //}
+                   
+                        });
+                
+                       
+                            });
+                       
+                            function fetchRecords4(id){
+                              $.ajax({
+                                url: 'https://timeconcept.com/pwa/topcity/'+id,
+                                type: 'get',
+                                dataType: 'json',
+                                success: function(response4){
+                       
+                                  var len = 0;
+                                  $('#TopCityTable tbody').empty(); // Empty <tbody>
+                                  if(response4 != null){
+                                     len = response4.length;
+                                  }
+                        
+                        var totalsum =  0;
+                       
+                                  if(len > 0){
+                                     for(var i=0; i<len; i++){
+                                        var id = response4[i].id;
+                                        var city_name = response4[i].city_name;
+                                        var total = response4[i].total;
+                         
+                                        var tr_str = "<tr>" +
+                                          "<td>" + (i+1) + "</td>" +
+                                          "<td>" + city_name + "</td>" +
+                                          "<td>" + total + "</td>" +
+                                        "</tr>";
+                          
+                          totalsum += Number(total);
+                       
+                                        $("#TopCityTable tbody").append(tr_str);
+                                     }
+                         
+                          var tr_str = "<tr>" +
+                                          "<td>&nbsp;</td>" +
+                                          "<td><strong>Total</strong></td>" +
+                                          "<td><strong>" + totalsum + "</strong></td>" +
+                                        "</tr>";
+                          
+                          $("#TopCityTable tbody").append(tr_str);
+                         
+                                  }else{
+                                     var tr_str = "<tr>" +
+                                         "<td align='center' colspan='3'>No record found.</td>" +
+                                     "</tr>";
+                       
+                                     $("#TopCityTable tbody").append(tr_str);
+                                  }
+                       
+                                }
+                              });
+                            }
+                            </script>
+                        </tbody>
+                      </table>
+                    </div>
+                    
                   </div>
+                  
                 </div>
-                <!-- /.box-body -->
               </div>
-		    
-		    
-		    
-		    
+
+
+
+
+
+              
   
   
   
@@ -1996,7 +3257,7 @@
     
   
     <footer class="main-footer">
-      <strong>&copy; 2011 <a href="#">Dashboard</a>.</strong>
+      <strong>&copy; 2011 <a href="#">TimeConcept.com</a>.</strong>
       All rights reserved.
       <div class="float-right d-none d-sm-inline-block">
         <b>Version</b> 3.1.0
@@ -2506,6 +3767,61 @@
       });
     });
   </script>
+	
+  <script>
+  $(document).ready(function(){
+      const config = {
+          apiKey: "AIzaSyDgwws4FKqq8M9qlKfiWg-AozD3eMsligU",
+  authDomain: "ionic-apps-212011.firebaseapp.com",
+  databaseURL: "https://ionic-apps-212011.firebaseio.com",
+  projectId: "ionic-apps-212011",
+  storageBucket: "ionic-apps-212011.appspot.com",
+  messagingSenderId: "423240615281",
+  appId: "1:423240615281:web:91c8e5842816ea5e6c62d0"
+      };
+      firebase.initializeApp(config);
+      const messaging = firebase.messaging();
+      
+      messaging
+          .requestPermission()
+          .then(function () {
+              return messaging.getToken()
+          })
+          .then(function(token) {
+              $.ajaxSetup({
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                  }
+              });
+              $.ajax({
+                  url: 'https://timeconcept.com/pwa/save-token',
+                  type: 'POST',
+                  data: {
+                      fcm_token: token
+                  },
+                  dataType: 'JSON',
+                  success: function (response) {
+                      console.log(response)
+                  },
+                  error: function (err) {
+                      console.log(" Can't do because: " + err);
+                  },
+              });
+          })
+          .catch(function (err) {
+              console.log("Unable to get permission to notify.", err);
+          });
+  
+      messaging.onMessage(function(payload) {
+          const noteTitle = payload.notification.title;
+          const noteOptions = {
+              body: payload.notification.body,
+              icon: payload.notification.icon,
+          };
+          new Notification(noteTitle, noteOptions);
+      });
+  });
+</script>
   <script src="js/main.js"></script>
   <script src="js/app.js"></script>
   </body>
