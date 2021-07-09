@@ -978,10 +978,10 @@
             
             
             $('#but_search').click(function(){
-               var searchdate13 = $('#daterange-btn').val().trim();
+               var searchdate17 = $('#daterange-btn').val().trim();
                  
                  //if(searchdate != ''){
-                 fetchRecords13(searchdate13);
+                 fetchRecords17(searchdate17);
                  //}
          
               });
@@ -989,7 +989,7 @@
              
                   });
              
-                  function fetchRecords13(id){
+                  function fetchRecords17(id){
                     $.ajax({
                       url: 'https://timeconcept.com/pwa/totaldeny/'+id,
                       type: 'get',
@@ -2271,6 +2271,9 @@
                 <div class="card-header">
                   <h3 class="card-title">Latest Orders</h3>
                   <div class="card-tools">
+			  
+			  <span class="badge badge-warning" style="text-transform:capitalize; cursor:pointer; display:none; background-color:#333 !important; color:#fff; " id="but_fetchallorder">All</span>&nbsp;<span class="badge badge-success" style="text-transform:capitalize; cursor:pointer; display:none; " id="but_fetchpaid">Paid</span>&nbsp;<span class="badge badge-danger" style="text-transform:capitalize; cursor:pointer; display:none; " id="but_fetchcanceled">Canceled</span>&nbsp;<span class="badge badge-warning" style="text-transform:capitalize; cursor:pointer; display:none; " id="but_fetchexpire">Expire</span>&nbsp;<span class="badge badge-primary" style="text-transform:capitalize; cursor:pointer; display:none; " id="but_fetchshipped">Shipped</span>&nbsp;<span class="badge badge-success" style="text-transform:capitalize; cursor:pointer; display:none; " id="but_fetchcomplete">Complete</span>
+			  
                     <!--<a href="#" class="btn btn-tool btn-sm">
                       <i class="fas fa-download"></i>
                     </a>
@@ -2371,13 +2374,13 @@
                        rupiah += separator + ribuan.join('.');
                      }
                      
-                     /*var tr_str = "<tr>" +
+                     var tr_str = "<tr>" +
                                       "<td>&nbsp;</td>" +
                         "<td>&nbsp;</td>" +
                                       "<td><strong>Total</strong></td>" +
                                       "<td><strong>Rp. " + rupiah + "</strong></td>" +
                         "<td>&nbsp;</td>" +
-                                    "</tr>";*/
+                                    "</tr>";
                       
                       $("#LatestOrderTable tbody").append(tr_str);
                               }else{
@@ -2622,13 +2625,13 @@
                        rupiah += separator + ribuan.join('.');
                      }
                      
-                     /*var tr_str = "<tr>" +
+                     var tr_str = "<tr>" +
                                       "<td>&nbsp;</td>" +
                         "<td>&nbsp;</td>" +
                                       "<td><strong>Total</strong></td>" +
                                       "<td><strong>Rp. " + rupiah + "</strong></td>" +
                         "<td>&nbsp;</td>" +
-                                    "</tr>";*/
+                                    "</tr>";
                       
                       $("#LatestOrderTable tbody").append(tr_str);
                       
