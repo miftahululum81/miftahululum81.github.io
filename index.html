@@ -328,7 +328,7 @@
     <div class="container-fluid">
           <!-- Small boxes (Stat box) -->
           <div class="row">
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-3">
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner" id="TotalSales">
@@ -429,7 +429,7 @@
               </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-3">
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner" id="TotalOrder">
@@ -3437,7 +3437,17 @@
       height: '250px'
     })
     
-    
+    $.ajax({
+        url: 'https://timeconcept.com/pwa/salesyearnow',
+        type: 'get',
+        dataType: 'json',
+        success: function (response3) {
+          //console.log(response3)
+
+          const labelSalesYear = response3.map((data) => {
+            return data
+          })
+	  
     /* Chart.js Charts */
     // Sales chart
     var salesChartCanvas = document.getElementById('revenue-chart-canvas').getContext('2d')
@@ -3457,7 +3467,7 @@
           pointHighlightStroke: 'rgba(60,141,188,1)',
           //data: [2227, 2271, 2541, 2930, 2227, 1508, 0, 0, 0, 0, 0, 0]
       data: [25088000,65773800,58143200,45720900,43134000,6752000,0,0,0,0,0,0]
-        },
+        }/*,
         {
           label: '2020',
           backgroundColor: 'rgba(210, 214, 222, 1)',
@@ -3469,7 +3479,7 @@
           pointHighlightStroke: 'rgba(220,220,220,1)',
           //data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1910, 2091, 1761]
       data: [11680000,8508000,7196800,39129600,49819201,31220000,400000,52299600,16518400,56188725,29316900,45696100]
-        }
+        }*/
       ]
     }
   
@@ -3500,19 +3510,40 @@
       data: salesChartData,
       options: salesChartOptions
     })
-  
+    
+    //console.log(labelSalesYear)
+        }
+      });
+	  
+  function capitalizeTheFirstLetterOfEachWord(words) {
+        var separateWord = words.toLowerCase().split(' ');
+        for (var i = 0; i < separateWord.length; i++) {
+          separateWord[i] = separateWord[i].charAt(0).toUpperCase() +
+            separateWord[i].substring(1);
+        }
+        return separateWord.join(' ');
+      }
+
+
+      $.ajax({
+        url: 'https://timeconcept.com/pwa/salesgenders',
+        type: 'get',
+        dataType: 'json',
+        success: function (response3) {
+          //console.log(response3)
+
+          const labelGender = response3.map((data) => {
+            return data.gender == null ? 'Unknown' : capitalizeTheFirstLetterOfEachWord(data.gender)
+          })
+
+          const dataGender = response3.map((data) => {
+            return data.total
+          })
+	  
+	  
     // Donut Chart
     var pieChartCanvas = $('#sales-chart-canvas').get(0).getContext('2d')
     var pieData = {
-      /*labels: [
-        'Alexandre Christie',
-        'Expedition',
-      'Daniel Klein',
-      'Q&Q',
-      'EXP',
-        'Mazzucato',
-        'ORIS'
-      ],*/
     labels: [
         'Unknown',
         'Female',
@@ -3542,6 +3573,9 @@
       data: pieData,
       options: pieOptions
     })
+    
+    }
+      });
   
     // Sales graph chart
     var salesGraphChartCanvas = $('#line-chart').get(0).getContext('2d')
