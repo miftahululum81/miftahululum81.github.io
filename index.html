@@ -308,11 +308,28 @@
       <div class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
-            <div class="col-sm-6">
+            <div class="col-sm-9">
               <h1 class="m-0">Dashboard</h1>
             </div><!-- /.col -->
-            <div class="col-sm-6">
-              <!--<ol class="breadcrumb float-sm-right">
+            <div class="col-sm-3">
+              
+		    <div class="row" id="myDIV">
+                <div class="col-8 col-sm-8 col-md-8" style="padding-right:0px; ">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="far fa-calendar-alt"></i>
+                      </span>
+                    </div>
+                    <input type="text" class="form-control pull-right" id="daterange-btn">
+                  </div>
+                </div>
+                <div class="col-4 col-sm-4 col-md-4">
+                  <input type="button" class="btn btn-block btn-default" value="Search" id="but_search">
+                </div>
+              </div>
+		    
+		    <!--<ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item active">Dashboard v1</li>
               </ol>-->
@@ -3372,6 +3389,28 @@
       // eslint-disable-next-line no-alert
       alert('You chose: ' + start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
     })
+	  
+	  //Date range as a button
+      $('#daterange-btn').daterangepicker(
+        {
+          locale: {
+            format: 'YYYY-MM-DD'
+          },
+          ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          startDate: moment(),
+          endDate: moment()
+        },
+        function (start, end) {
+          $('#reportrange span').html(start.format('MMMM D, YYYY') + '-' + end.format('MMMM D, YYYY'))
+        }
+      )
   
     /* jQueryKnob */
     $('.knob').knob()
