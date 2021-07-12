@@ -442,11 +442,11 @@
                 <div class="icon">
                   <i class="ion ion-bag"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <!--<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>-->
               </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-4">
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner" id="TotalOrder">
@@ -522,11 +522,11 @@
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <!--<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>-->
               </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-3 col-4">
               <!-- small box -->
               <div class="small-box bg-danger">
                 <div class="inner" id="TotalProduct">
@@ -569,11 +569,11 @@
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <!--<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>-->
               </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-3 col-4">
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner" id="TotalMember">
@@ -648,7 +648,7 @@
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <!--<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>-->
               </div>
             </div>
             <!-- ./col -->
@@ -1040,7 +1040,7 @@
             <!-- Left col -->
             <section class="col-lg-7 connectedSortable">
               <!-- Custom tabs (Charts with tabs)-->
-              <div class="card">
+              <div class="card" style="display:none; ">
                 <div class="card-header">
                   <h3 class="card-title">
                     <i class="fas fa-chart-pie mr-1"></i>
@@ -1077,6 +1077,34 @@
                 </div><!-- /.card-body -->
               </div>
               <!-- /.card -->
+		    
+		    
+		    
+		<!-- BAR CHART -->
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">Orders</h3>
+
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart">
+                    <canvas id="barChart"
+                      style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+		    
+		    
   
               <!-- DIRECT CHAT -->
               <div class="card direct-chat direct-chat-primary" style="display:none">
@@ -1456,7 +1484,7 @@
               
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Gender Order</h3>
+                  <h3 class="card-title">Order by Gender</h3>
   
                   <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -1500,6 +1528,44 @@
                 </div>
                 <!-- /.card-footer -->
               </div>
+		      
+		      
+		      
+		      
+		<div class="card">
+                    <div class="card-header">
+                      <h3 class="card-title">Order by Device</h3>
+
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                          <i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                          <i class="fas fa-times"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="chart-responsive">
+                            <canvas id="sales-chart-canvas2" height="200" style="height: 200px;"></canvas>
+                          </div>
+                          <!-- ./chart-responsive -->
+                        </div>
+                        <!-- /.col -->
+
+                      </div>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer text-center" style="display:none; ">
+                      <a href="javascript:void(0)" class="uppercase">View All Products</a>
+                    </div>
+                    <!-- /.card-footer -->
+                  </div>
+		      
+		      
               
               
               <style>
@@ -3554,8 +3620,85 @@
     })
     
     //console.log(labelSalesYear)
+    
+    
+    //-------------
+          //- BAR CHART -
+          //-------------
+          var barChartCanvas = $('#barChart').get(0).getContext('2d')
+          var barChartData = $.extend(true, {}, salesChartData)
+          var temp0 = salesChartData.datasets[0]
+          //var temp1 = salesChartData.datasets[1]
+          //barChartData.datasets[0] = temp1
+          barChartData.datasets[0] = temp0
+
+          var barChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+              display: false
+            },
+            datasetFill: false
+          }
+
+          new Chart(barChartCanvas, {
+            type: 'bar',
+            data: barChartData,
+            options: barChartOptions
+          })
+		
+		
+		
         }
       });
+
+	  
+	  
+	  $.ajax({
+        url: 'https://timeconcept.com/pwa/salesdevices',
+        type: 'get',
+        dataType: 'json',
+        success: function (response3) {
+          //console.log(response3)
+
+          const labelSalesDevice = response3.map((data) => {
+            return data
+          })
+          
+          //-------------
+          //- PIE CHART -
+          //-------------
+          var donutChartCanvas = $('#sales-chart-canvas2').get(0).getContext('2d')
+          var donutData = {
+            labels: [
+              'Mobile',
+              'Desktop',
+            ],
+            datasets: [
+              {
+                //data: [700, 500, 400, 600, 300, 100],
+                //backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+                data: labelSalesDevice,
+                backgroundColor: ['#f56954', '#00a65a'],
+              }
+            ]
+          }
+          var donutOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+          }
+          //Create pie or douhnut chart
+          // You can switch between pie and douhnut using the method below.
+          new Chart(donutChartCanvas, {
+            type: 'pie',
+            data: donutData,
+            options: donutOptions
+          })
+
+        }
+      });
+	  
+	  
 	  
   function capitalizeTheFirstLetterOfEachWord(words) {
         var separateWord = words.toLowerCase().split(' ');
