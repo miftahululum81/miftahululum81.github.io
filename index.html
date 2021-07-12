@@ -534,37 +534,69 @@
   
                   <p>Visitors</p>-->
                   <script type='text/javascript'>
-                    $(document).ready(function(){
-               
+                    $(document).ready(function () {
+
                       $.ajax({
-                        url: 'https://timeconcept.com/pwa/totalproduct',
+                        url: 'https://timeconcept.com/pwa/totalproduct/1',
                         type: 'get',
                         dataType: 'json',
-                        success: function(response6){
-   
+                        success: function (response18) {
+
                           $('#TotalProduct').empty(); // Empty <tbody>
-                
-                var totalsum = response6;
-               
-                          if(totalsum != null){
-                 var tr_str = "<h3>" + totalsum + "</h3><p>Total Product</p>";
-                  
-                  $("#TotalProduct").append(tr_str);
-                          }else{
-                             var tr_str = "<h3>0</h3><p>Total Product</p>";
-   
-                             $("#TotalProduct").append(tr_str);
+
+                          var totalsum = response18;
+
+                          if (totalsum != null) {
+                            var tr_str = "<h3>" + totalsum + "</h3><p>Total Products</p>";
+
+                            $("#TotalProduct").append(tr_str);
+                          } else {
+                            var tr_str = "<h3>0</h3><p>Total Products</p>";
+
+                            $("#TotalProduct").append(tr_str);
                           }
-               
+
                         }
                       });
-              
-              
-               
+
+
+                      $('#but_search').click(function () {
+                        var searchdate18 = $('#daterange-btn').val().trim();
+
+                        //if(searchdate != ''){
+                        fetchRecords18(searchdate18);
+                        //}
+
+                      });
+
+
                     });
-               
-                    
-                    </script>
+
+                    function fetchRecords18(id) {
+                      $.ajax({
+                        url: 'https://timeconcept.com/pwa/totalproduct/' + id,
+                        type: 'get',
+                        dataType: 'json',
+                        success: function (response18) {
+
+                          $('#TotalProduct').empty(); // Empty <tbody>
+
+                          var totalsum = response18;
+
+                          if (totalsum != null) {
+                            var tr_str = "<h3>" + totalsum + "</h3><p>Total Products</p>";
+
+                            $("#TotalProduct").append(tr_str);
+                          } else {
+                            var tr_str = "<h3>0</h3><p>Total Products</p>";
+
+                            $("#TotalProduct").append(tr_str);
+                          }
+
+                        }
+                      });
+                    }
+                  </script>
                 </div>
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
